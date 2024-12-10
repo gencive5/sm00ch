@@ -1,5 +1,5 @@
 body {
-    font-family: 'Arial, sans-serif';
+    font-family: 'sm00ch';
     margin: 0;
     padding: 0;
     background-color: #ffffff;
@@ -9,5 +9,11 @@ body {
   h1 {
     text-align: center;
     margin-top: 50px;
+    font-family: 'sm00ch';
   }
   
+  .text-display {
+
+    font-family: 'sm00ch';
+    font-size: large;
+  }

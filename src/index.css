@@ -7,3 +7,11 @@ body {
     color: #333;
   }
   
+
+  @font-face {
+    font-family: 'sm00ch';
+    src: local('sm00ch'), url('assets/sm00ch.woff') format('woff'), url('assets/sm00ch.woff2') format('woff2');
+  
+    font-weight: 330; /* Adjust font weight if necessary */
+    font-style: normal; /* Adjust font style if necessary */
+  }

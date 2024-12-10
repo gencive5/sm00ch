@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   // State to store the user input
-  const [userText, setUserText] = useState('Type here to see the font!');
+  const [userText, setUserText] = useState(' ');
 
   return (
     <div className="container mt-5">
