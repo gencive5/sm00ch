@@ -1,13 +1,24 @@
-import React from 'react';
-import './styles.css';
+import React, { useState } from 'react';
+import './styles.css'; // Ensure your font is defined here
 
 function App() {
+  // State to store the user input
+  const [userText, setUserText] = useState('Type here to see the font!');
+
   return (
     <div className="app">
-      <h1>sm00ch!</h1>
-      <p>
-        TRy or PurchAse HERE
-      </p>
+      <h1>sm00ch!?!!</h1>
+
+      {/* Input Field */}
+      <textarea
+        className="text-input"
+        placeholder="Start typing..."
+        value={userText}
+        onChange={(e) => setUserText(e.target.value)}
+      />
+
+      {/* Display Zone */}
+      <div className="text-display">{userText}</div>
     </div>
   );
 }
