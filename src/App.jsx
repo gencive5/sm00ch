@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './styles.css'; 
 import 'bootstrap/dist/css/bootstrap.min.css'; 
-import AnimatedFavicon from './AnimatedFavicon';
+import AnimatedFavicon from './animatedfavicon';
 
 function App() {
   // State to store the user input
