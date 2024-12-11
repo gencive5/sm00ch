@@ -27,9 +27,9 @@ function App() {
         <a
           href="/sm00ch-font.woff" // Path to your font file in the public folder
           download="sm00ch-font.woff" // Suggested download file name
-          className="btn btn-primary"
+          className="btn-primary"
         >
-          Download Font
+          DOWNLOAD FONT
         </a>
       </div>
 
