@@ -17,3 +17,8 @@ body {
     font-family: 'sm00ch';
     font-size: large;
   }
+
+  .btn-primary {
+   color: #8d0707;
+  
+  }

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './styles.css'; 
 import 'bootstrap/dist/css/bootstrap.min.css'; 
+import AnimatedFavicon from './AnimatedFavicon';
 
 function App() {
   // State to store the user input
@@ -31,6 +32,8 @@ function App() {
           Download Font
         </a>
       </div>
+
+      <AnimatedFavicon />
 
 
     </div>
