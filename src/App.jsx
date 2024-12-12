@@ -1,11 +1,18 @@
-import React, { useState } from 'react';
-import './styles.css'; 
-import 'bootstrap/dist/css/bootstrap.min.css'; 
+import React, { useState, useEffect, useRef } from 'react';
+import './styles.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import AnimatedFavicon from './animatedfavicon';
 
 function App() {
-  // State to store the user input
-  const [userText, setUserText] = useState(' ');
+  const [userText, setUserText] = useState('');
+  const textAreaRef = useRef(null);
+
+  // Automatically focus on the textarea when the component mounts
+  useEffect(() => {
+    if (textAreaRef.current) {
+      textAreaRef.current.focus();
+    }
+  }, []);
 
   return (
     <div className="container mt-5">
@@ -13,20 +20,26 @@ function App() {
 
       {/* Input Field */}
       <textarea
+        ref={textAreaRef}
         className="text-input"
-        placeholder="Start typing..."
+        
         value={userText}
         onChange={(e) => setUserText(e.target.value)}
       />
 
-      {/* Display Zone */}
-      <div className="text-display">{userText}</div>
+      {/* Display Zone with Caret */}
+      <div className="display-wrapper">
+        <div className="text-display">
+          {userText}
+          <span className="caret"></span>
+        </div>
+      </div>
 
-    {/* Download Button */}
-    <div className="text-center mt-4">
+      {/* Download Button */}
+      <div className="text-center mt-4">
         <a
-          href="/sm00ch-font.woff" // Path to your font file in the public folder
-          download="sm00ch-font.woff" // Suggested download file name
+          href="/sm00ch-font.woff"
+          download="sm00ch-font.woff"
           className="btn-primary"
         >
           DOWNLOAD FONT
@@ -34,12 +47,7 @@ function App() {
       </div>
 
       <AnimatedFavicon />
-
-
     </div>
-
-    
-
   );
 }
 
