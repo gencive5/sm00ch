@@ -38,27 +38,27 @@ function App() {
         </button>
         <button
           className="btn btn-danger me-2"
-          onClick={() => changeFontColor('#ff0000')}
+          onClick={() => changeFontColor('#B00F20')}
         >
           Red
         </button>
         <button
           className="btn btn-primary me-2"
-          onClick={() => changeFontColor('#0000ff')}
+          onClick={() => changeFontColor('#99003F')}
         >
-          Blue
+          Fuchsia
         </button>
         <button
           className="btn btn-success me-2"
-          onClick={() => changeFontColor('#00ff00')}
+          onClick={() => changeFontColor('#B648AD')}
         >
-          Green
+          Pink
         </button>
         <button
           className="btn btn-warning"
-          onClick={() => changeFontColor('#ffa500')}
+          onClick={() => changeFontColor('#000000')}
         >
-          Orange
+          Black
         </button>
       </div>
 
