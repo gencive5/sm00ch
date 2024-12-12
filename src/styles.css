@@ -50,6 +50,7 @@ body {
 }
 
 
+
 /* Display Zone Styling */
 .display-wrapper {
   position: relative;
@@ -126,4 +127,13 @@ body {
   .texte {
 
     font-family: 'din1451';
+  }
+
+  .button-row {
+    display: flex;
+    justify-content: flex-start;
+  }
+  
+  .button-row .btn {
+    min-width: 100px;
   }
