@@ -19,14 +19,6 @@ body {
   width: 100%;
 }
 
-.display-wrapper {
-  display: inline-block;
-  width: 80%;
-  margin-bottom: 20px;
-  position: relative;
-}
-
-
 
 .text-input {
   width: 100%;
@@ -35,7 +27,9 @@ body {
   border: 1px solid #ccc;
   outline: none;
   font-size: 1rem;
-  caret-color: black; /* Style the caret color */
+  caret-color: black;
+  font-family: 'din1451';
+  text-transform: uppercase;
 }
 
 
@@ -47,6 +41,7 @@ body {
   margin-top: 20px;
 }
 
+
 .text-display {
   width: 100%;
   min-height: 150px;
@@ -55,7 +50,9 @@ body {
   border: 1px solid #ccc;
   margin: 0 auto;
   text-align: left;
-  white-space: pre-wrap; /* Maintain spaces and newlines */
+  white-space: pre-wrap;
+  font-family: 'sm00ch';
+  font-size: large;
 }
 
 /* Caret Styling */
@@ -82,11 +79,6 @@ body {
     font-family: 'sm00ch';
   }
   
-  .text-display {
-
-    font-family: 'sm00ch';
-    font-size: large;
-  }
 
   .btn-primary {
     background-color: #da0909;
