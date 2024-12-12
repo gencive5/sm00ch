@@ -5,12 +5,12 @@ import AnimatedFavicon from './animatedfavicon';
 
 function App() {
   const [userText, setUserText] = useState('');
-  const textAreaRef = useRef(null);
+  const firstInputRef = useRef(null);
 
-  // Automatically focus on the textarea when the component mounts
+  // Automatically focus on the first textarea when the component mounts
   useEffect(() => {
-    if (textAreaRef.current) {
-      textAreaRef.current.focus();
+    if (firstInputRef.current) {
+      firstInputRef.current.focus();
     }
   }, []);
 
@@ -18,22 +18,22 @@ function App() {
     <div className="container mt-5">
       <h1>sm00ch</h1>
 
-      {/* Input Field */}
+      {/* First Input Field */}
       <textarea
-        ref={textAreaRef}
+        ref={firstInputRef}
         className="text-input"
-        
+        placeholder="Start typing..."
         value={userText}
         onChange={(e) => setUserText(e.target.value)}
       />
 
-      {/* Display Zone with Caret */}
-      <div className="display-wrapper">
-        <div className="text-display">
-          {userText}
-          <span className="caret"></span>
-        </div>
-      </div>
+      {/* Second Input Field (Interconnected) */}
+      <textarea
+        className="text-input2"
+        placeholder="See your text here..."
+        value={userText}
+        onChange={(e) => setUserText(e.target.value)}
+      />
 
       {/* Download Button */}
       <div className="text-center mt-4">

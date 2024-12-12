@@ -32,6 +32,23 @@ body {
   text-transform: uppercase;
 }
 
+.text-input2 {
+  width: 100%;
+  height: 150px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 2rem;
+  caret-color: black;
+  font-family: 'sm00ch';
+  text-transform: uppercase;
+}
+
+/* Add blinking caret effect */
+.text-input:focus {
+  animation: blink-caret 1s step-end infinite;
+}
+
 
 /* Display Zone Styling */
 .display-wrapper {
@@ -52,7 +69,7 @@ body {
   text-align: left;
   white-space: pre-wrap;
   font-family: 'sm00ch';
-  font-size: large;
+  font-size: 2rem;
 }
 
 /* Caret Styling */
