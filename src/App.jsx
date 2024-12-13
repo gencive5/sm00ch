@@ -40,7 +40,7 @@ function App() {
     context.clearRect(0, 0, canvas.width, canvas.height);
 
     // Set font and color
-    context.font = `${fontSize}px Arial`;
+    context.font = `${fontSize}px sm00ch`;
     context.fillStyle = fontColor;
 
     // Draw the text
