@@ -3,13 +3,16 @@ body {
     margin: 0;
     padding: 0;
     background-color: #ffffff;
-    color: #333;
+    color: #ffffff;
+    overflow:hidden;
   }
 
 
 .container {
   text-align: center;
   margin-top: 50px;
+  background-color: #ffffff;
+ 
 }
 
 /* Input Field Styling */
@@ -24,7 +27,7 @@ body {
   width: 100%;
   height: 70px;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: none;
   outline: none;
   font-size: 1rem;
   caret-color: black;
@@ -36,7 +39,7 @@ body {
   width: 100%;
   height: 300px;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: none;
   outline: none;
   font-size: 2rem;
   caret-color: black;
