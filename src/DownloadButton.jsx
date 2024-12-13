@@ -1,5 +1,4 @@
-// DownloadButton.jsx
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const DownloadButton = ({ userText, fontSize, fontColor }) => {
   const [isMobile, setIsMobile] = useState(false);
@@ -8,12 +7,11 @@ const DownloadButton = ({ userText, fontSize, fontColor }) => {
     setIsMobile(/Mobi|Android/i.test(navigator.userAgent));
   }, []);
 
-  // Function to ensure the sm00ch font is loaded before drawing on the canvas
   const loadFontAndDownload = async () => {
     if (!userText) return;
 
     try {
-      // Load the sm00ch font
+      // Load the sm00ch font before rendering
       await document.fonts.load(`${fontSize}px sm00ch`);
       downloadPNG();
     } catch (error) {
@@ -21,29 +19,32 @@ const DownloadButton = ({ userText, fontSize, fontColor }) => {
     }
   };
 
-  // Function to download the text as a transparent PNG
   const downloadPNG = () => {
     const canvas = document.createElement('canvas');
     const context = canvas.getContext('2d');
 
-    // Set canvas size dynamically based on text
+    // Set padding for the canvas
     const padding = 20;
-    context.font = `${fontSize}px sm00ch`; // Use the sm00ch font
+    context.font = `${fontSize}px sm00ch`;
     const textMetrics = context.measureText(userText);
-    canvas.width = textMetrics.width + padding * 2;
-    canvas.height = fontSize + padding * 2;
 
-    // Clear the canvas with a transparent background
+    // Calculate canvas dimensions dynamically
+    const textWidth = textMetrics.width;
+    const textHeight = fontSize;
+    canvas.width = textWidth + padding * 2;
+    canvas.height = textHeight + padding * 2;
+
+    // Ensure the background is transparent
     context.clearRect(0, 0, canvas.width, canvas.height);
 
-    // Set font and color
+    // Set font properties
     context.font = `${fontSize}px sm00ch`;
     context.fillStyle = fontColor;
 
-    // Draw the text on the canvas
-    context.fillText(userText, padding, fontSize + padding / 2);
+    // Draw the text with padding
+    context.fillText(userText, padding, textHeight + padding / 2);
 
-    // Create a link to download the canvas content as a PNG
+    // Convert canvas to data URL and create a download link
     const link = document.createElement('a');
     link.href = canvas.toDataURL('image/png');
     link.download = 'text-image.png';
