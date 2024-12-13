@@ -30,8 +30,8 @@ function App() {
       <div className="custom-slider-container">
           <input
             type="range"
-            min="12"
-            max="72"
+            min="24"
+            max="120"
             value={fontSize}
             onChange={(e) => setFontSize(Number(e.target.value))}
             className="custom-slider"
