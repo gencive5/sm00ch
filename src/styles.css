@@ -178,32 +178,46 @@ body {
   padding: 5px;
   }
 
- /* Customize the slider appearance */
-.form-range {
-  appearance: none;
+/* Container for custom slider */
+.custom-slider-container {
+  width: 200px;
+  position: relative;
+}
+
+/* Custom range slider track */
+.custom-slider {
+  -webkit-appearance: none;
   width: 100%;
-  height: 0.5rem; /* Thickness of the slider line */
-  background: #000000; /* Black line */
+  height: 0.5rem;
+  background: #000000; /* Black track */
   border-radius: 5px;
   outline: none;
-  transition: background 0.3s;
+  cursor: pointer;
 }
 
-/* Webkit browsers (Chrome, Safari) */
-.form-range::-webkit-slider-thumb {
+/* Custom thumb for WebKit browsers (Chrome, Safari) */
+.custom-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
   appearance: none;
   width: 2rem;
   height: 2rem;
-  background: #000000; /* Full black circle */
+  background: #000000; /* Black circular thumb */
   border-radius: 50%;
   cursor: pointer;
 }
 
-/* Firefox */
-.form-range::-moz-range-thumb {
+/* Custom thumb for Firefox */
+.custom-slider::-moz-range-thumb {
   width: 2rem;
   height: 2rem;
-  background: #000000; /* Full black circle */
+  background: #000000; /* Black circular thumb */
   border-radius: 50%;
   cursor: pointer;
 }
+
+/* Remove default outline and shadow on focus */
+.custom-slider:focus {
+  outline: none;
+}
+
+
