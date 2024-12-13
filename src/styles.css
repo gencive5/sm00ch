@@ -50,7 +50,6 @@ body {
 }
 
 
-
 /* Display Zone Styling */
 .display-wrapper {
   position: relative;
@@ -95,6 +94,7 @@ body {
     text-align: center;
     margin-top: 50px;
     font-family: 'sm00ch';
+    color: #000000;
   }
   
 
@@ -137,3 +137,73 @@ body {
   .button-row .btn {
     min-width: 100px;
   }
+
+  .button-red {
+    border-radius: 50%;
+    height: 2rem;
+  width: 2rem;
+  background-color: #B00F20;
+  color: white;
+  border: none;
+  padding: 5px;
+  }
+
+  .button-fuchsia {
+    border-radius: 50%;
+    height: 2rem;
+  width: 2rem;
+  background-color: #99003F;
+  color: white;
+  border: none;
+  padding: 5px;
+  }
+
+  .button-pink {
+    border-radius: 50%;
+    height: 2rem;
+  width: 2rem;
+  background-color: #B648AD;
+  color: white;
+  border: none;
+  padding: 5px;
+  }
+
+  .button-black {
+    border-radius: 50%;
+    height: 2rem;
+  width: 2rem;
+  background-color: #000000;
+  color: white;
+  border: none;
+  padding: 5px;
+  }
+
+ /* Customize the slider appearance */
+.form-range {
+  appearance: none;
+  width: 100%;
+  height: 0.5rem; /* Thickness of the slider line */
+  background: #000000; /* Black line */
+  border-radius: 5px;
+  outline: none;
+  transition: background 0.3s;
+}
+
+/* Webkit browsers (Chrome, Safari) */
+.form-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 2rem;
+  height: 2rem;
+  background: #000000; /* Full black circle */
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Firefox */
+.form-range::-moz-range-thumb {
+  width: 2rem;
+  height: 2rem;
+  background: #000000; /* Full black circle */
+  border-radius: 50%;
+  cursor: pointer;
+}

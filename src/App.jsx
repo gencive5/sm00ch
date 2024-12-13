@@ -5,24 +5,17 @@ import AnimatedFavicon from './animatedfavicon';
 
 function App() {
   const [userText, setUserText] = useState('');
-  const [fontSize, setFontSize] = useState(16); // Default font size in px
-  const [fontColor, setFontColor] = useState('#000000'); // Default font color (black)
+  const [fontSize, setFontSize] = useState(42); // Start at the middle of the range
+  const [fontColor, setFontColor] = useState('#000000');
 
   const firstInputRef = useRef(null);
 
-  // Automatically focus on the first textarea when the component mounts
   useEffect(() => {
     if (firstInputRef.current) {
       firstInputRef.current.focus();
     }
   }, []);
 
-  // Function to handle font size change
-  const increaseFontSize = () => {
-    setFontSize((prevSize) => prevSize + 2);
-  };
-
-  // Function to change font color
   const changeFontColor = (color) => {
     setFontColor(color);
   };
@@ -31,34 +24,35 @@ function App() {
     <div className="container mt-5">
       <h1>sm00ch</h1>
 
-      {/* Buttons Row */}
       <div className="button-row mb-3">
-        <button className="btn btn-secondary me-2" onClick={increaseFontSize}>
-          Increase Font Size
+        {/* Range Slider for Font Size Control */}
+        <div className="d-flex align-items-center">
+          <input
+            type="range"
+            min="12"
+            max="72"
+            value={fontSize}
+            onChange={(e) => setFontSize(Number(e.target.value))}
+            className="form-range"
+          />
+        </div>
+
+        {/* Buttons for Changing Font Color */}
+        <button
+          className="button-red ms-3"
+          onClick={() => changeFontColor('#B00F20')}>
         </button>
         <button
-          className="btn btn-danger me-2"
-          onClick={() => changeFontColor('#B00F20')}
-        >
-          Red
+          className="button-fuchsia"
+          onClick={() => changeFontColor('#99003F')}>
         </button>
         <button
-          className="btn btn-primary me-2"
-          onClick={() => changeFontColor('#99003F')}
-        >
-          Fuchsia
+          className="button-pink"
+          onClick={() => changeFontColor('#B648AD')}>
         </button>
         <button
-          className="btn btn-success me-2"
-          onClick={() => changeFontColor('#B648AD')}
-        >
-          Pink
-        </button>
-        <button
-          className="btn btn-warning"
-          onClick={() => changeFontColor('#000000')}
-        >
-          Black
+          className="button-black"
+          onClick={() => changeFontColor('#000000')}>
         </button>
       </div>
 
