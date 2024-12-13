@@ -1,3 +1,9 @@
+@font-face {
+  font-family: 'sm00ch';
+  src: url('/sm00ch-font.woff') format('woff');
+}
+
+
 body {
     font-family: 'sm00ch';
     margin: 0;
