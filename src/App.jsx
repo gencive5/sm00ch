@@ -22,7 +22,7 @@ function App() {
 
   return (
     <div className="container mt-5">
-      <h1>sm00ch</h1>
+      <h1 className= "title">sm00ch</h1>
 
   
       {/* Buttons */}
