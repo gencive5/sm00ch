@@ -22,19 +22,16 @@ function App() {
     setFontColor(color);
   };
 
-  // Function to download the text as a transparent PNG using the sm00ch font
-  const downloadPNG = async () => {
+  // Function to download the text as a transparent PNG
+  const downloadPNG = () => {
     if (!userText) return;
-
-    // Load the sm00ch font before rendering the canvas
-    await document.fonts.load(`${fontSize}px sm00ch`);
 
     const canvas = document.createElement('canvas');
     const context = canvas.getContext('2d');
 
     // Set canvas size dynamically based on text
     const padding = 20;
-    context.font = `${fontSize}px sm00ch`;
+    context.font = `${fontSize}px sm00ch`; // Adjust font family if needed
     const textMetrics = context.measureText(userText);
     canvas.width = textMetrics.width + padding * 2;
     canvas.height = fontSize + padding * 2;
@@ -43,7 +40,7 @@ function App() {
     context.clearRect(0, 0, canvas.width, canvas.height);
 
     // Set font and color
-    context.font = `${fontSize}px sm00ch`;
+    context.font = `${fontSize}px Arial`;
     context.fillStyle = fontColor;
 
     // Draw the text
