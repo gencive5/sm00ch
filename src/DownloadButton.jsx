@@ -26,14 +26,16 @@ const DownloadButton = ({ userText, fontSize, fontColor }) => {
     // Device Pixel Ratio (for higher quality on high-res screens)
     const dpr = window.devicePixelRatio || 1;
 
-    // Set padding for the canvas
-    const padding = 20 * dpr;
-    context.font = `${fontSize * dpr}px sm00ch`;
+    // Set padding and scaling factor for larger image
+    const padding = 40 * dpr; // Increased padding for a larger canvas
+    const scaleFactor = 1.5;  // Scale factor to increase overall size
+
+    context.font = `${fontSize * dpr * scaleFactor}px sm00ch`;
     const textMetrics = context.measureText(userText);
 
     // Calculate canvas dimensions dynamically
     const textWidth = textMetrics.width;
-    const textHeight = fontSize * dpr;
+    const textHeight = fontSize * dpr * scaleFactor;
     canvas.width = textWidth + padding * 2;
     canvas.height = textHeight + padding * 2;
 
@@ -41,7 +43,7 @@ const DownloadButton = ({ userText, fontSize, fontColor }) => {
     context.clearRect(0, 0, canvas.width, canvas.height);
 
     // Set font properties
-    context.font = `${fontSize * dpr}px sm00ch`;
+    context.font = `${fontSize * dpr * scaleFactor}px sm00ch`;
     context.fillStyle = fontColor;
 
     // Draw the text with padding
