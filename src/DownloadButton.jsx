@@ -23,14 +23,17 @@ const DownloadButton = ({ userText, fontSize, fontColor }) => {
     const canvas = document.createElement('canvas');
     const context = canvas.getContext('2d');
 
+    // Device Pixel Ratio (for higher quality on high-res screens)
+    const dpr = window.devicePixelRatio || 1;
+
     // Set padding for the canvas
-    const padding = 20;
-    context.font = `${fontSize}px sm00ch`;
+    const padding = 20 * dpr;
+    context.font = `${fontSize * dpr}px sm00ch`;
     const textMetrics = context.measureText(userText);
 
     // Calculate canvas dimensions dynamically
     const textWidth = textMetrics.width;
-    const textHeight = fontSize;
+    const textHeight = fontSize * dpr;
     canvas.width = textWidth + padding * 2;
     canvas.height = textHeight + padding * 2;
 
@@ -38,11 +41,15 @@ const DownloadButton = ({ userText, fontSize, fontColor }) => {
     context.clearRect(0, 0, canvas.width, canvas.height);
 
     // Set font properties
-    context.font = `${fontSize}px sm00ch`;
+    context.font = `${fontSize * dpr}px sm00ch`;
     context.fillStyle = fontColor;
 
     // Draw the text with padding
     context.fillText(userText, padding, textHeight + padding / 2);
+
+    // Scale the canvas back down for correct download size
+    canvas.style.width = `${canvas.width / dpr}px`;
+    canvas.style.height = `${canvas.height / dpr}px`;
 
     // Convert canvas to data URL and create a download link
     const link = document.createElement('a');
