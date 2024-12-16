@@ -61,7 +61,7 @@ const DownloadButton = ({ userText, fontSize, fontColor }) => {
   };
 
   return (
-    <div className="text-center mt-4">
+    <div>
       {isMobile ? (
         <button className="bttn btn-download" onClick={loadFontAndDownload}>
           DOWNLOAD PNG

@@ -1,4 +1,3 @@
-// App.jsx
 import React, { useState, useEffect, useRef } from 'react';
 import './styles.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -9,6 +8,7 @@ function App() {
   const [userText, setUserText] = useState('');
   const [fontSize, setFontSize] = useState(42);
   const [fontColor, setFontColor] = useState('#000000');
+  const [isMobile, setIsMobile] = useState(false);
 
   const firstInputRef = useRef(null);
 
@@ -16,6 +16,17 @@ function App() {
     if (firstInputRef.current) {
       firstInputRef.current.focus();
     }
+  }, []);
+
+  // Detect if the device is mobile
+  useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    checkIsMobile();
+    window.addEventListener('resize', checkIsMobile);
+    return () => window.removeEventListener('resize', checkIsMobile);
   }, []);
 
   const changeFontColor = (color) => {
@@ -61,16 +72,20 @@ function App() {
         onChange={(e) => setUserText(e.target.value)}
         style={{ fontSize: `${fontSize}px`, color: fontColor }}
       />
-    
-    <div className="button-row mb-3">
-      <button className="bttn btn-use"> USE CONDITIONS </button>
-      {/* Download Button */}
-      <DownloadButton userText={userText} fontSize={fontSize} fontColor={fontColor}/>
-      <button className="bttn btn-donate"> DONATE</button>
-      <button className="bttn btn-2"> 2</button>
-     
 
-
+      {/* Buttons for Desktop and Mobile */}
+      <div className="button-row mb-3 text-center mt-4">
+      <DownloadButton userText={userText} fontSize={fontSize} fontColor={fontColor} />
+        {isMobile ? (
+          <button className="bttn btn-plus">+</button>
+        ) : (
+          <>
+            <button className="bttn btn-use">USE CONDITIONS</button>
+            
+            <button className="bttn btn-donate">DONATE</button>
+            <button className="bttn btn-2">2</button>
+          </>
+        )}
       </div>
 
       <AnimatedFavicon />
