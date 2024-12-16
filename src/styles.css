@@ -113,31 +113,53 @@ body {
     font-size: 3rem;
   }
   
+/* Base button style */
+.bttn {
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #000000;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  margin: 0;
+  outline: none;
+  padding: 13px 23px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  touch-action: manipulation;
+  transition: box-shadow 0.2s, transform 0.1s;
+  user-select: none;
+  -webkit-user-select: none;
+  min-width: 150px; /* Ensures all buttons are at least this width */
+}
 
-  .btn-primary {
-    background-color: #da0909;
-    border: 1px solid #222222;
-    border-radius: 8px;
-    box-sizing: border-box;
-    color: #222222;
-    cursor: pointer;
-    display: inline-block;
-    font-family: 'din1451';
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 20px;
-    margin: 0;
-    outline: none;
-    padding: 13px 23px;
-    position: relative;
-    text-align: center;
-    text-decoration: none;
-    touch-action: manipulation;
-    transition: box-shadow .2s,-ms-transform .1s,-webkit-transform .1s,transform .1s;
-    user-select: none;
-    -webkit-user-select: none;
-    width: auto;
-  }
+/* Modifier classes for different button colors */
+.btn-download {
+  background-color: #da0909;
+  font-family: 'din1451',
+}
+
+.btn-donate {
+  background-color: #b648ad;
+  font-family: 'din1451',
+}
+
+.btn-use {
+  background-color: #99003f;
+  font-family: 'din1451',
+}
+
+.btn-2 {
+  background-color: #ffffff;
+  font-family: 'sm00ch', sans-serif;
+  font-size: 30px; /* Unique font size for this button */
+}
+
   
   
   .texte {

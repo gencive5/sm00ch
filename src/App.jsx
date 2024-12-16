@@ -61,9 +61,17 @@ function App() {
         onChange={(e) => setUserText(e.target.value)}
         style={{ fontSize: `${fontSize}px`, color: fontColor }}
       />
-
+    
+    <div className="button-row mb-3">
+      <button className="bttn btn-use"> USE CONDITIONS </button>
       {/* Download Button */}
-      <DownloadButton userText={userText} fontSize={fontSize} fontColor={fontColor} />
+      <DownloadButton userText={userText} fontSize={fontSize} fontColor={fontColor}/>
+      <button className="bttn btn-donate"> DONATE</button>
+      <button className="bttn btn-2"> 2</button>
+     
+
+
+      </div>
 
       <AnimatedFavicon />
     </div>
