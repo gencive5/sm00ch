@@ -117,17 +117,17 @@ body {
 .bttn {
   background-color: #ffffff;
   border: 1px solid #000000;
-  border-radius: 8px;
+  border-radius: 5px;
   box-sizing: border-box;
   color: #000000;
   cursor: pointer;
   display: inline-block;
-  font-size: 16px;
+  font-size: 30px;
   font-weight: 600;
   line-height: 20px;
   margin: 0;
   outline: none;
-  padding: 13px 23px;
+  padding: 8px 8px;
   position: relative;
   text-align: center;
   text-decoration: none;
