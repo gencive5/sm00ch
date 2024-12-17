@@ -9,6 +9,7 @@ function App() {
   const [fontSize, setFontSize] = useState(42);
   const [fontColor, setFontColor] = useState('#000000');
   const [isMobile, setIsMobile] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const firstInputRef = useRef(null);
 
@@ -31,6 +32,16 @@ function App() {
 
   const changeFontColor = (color) => {
     setFontColor(color);
+  };
+
+  // Function to open the modal
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  // Function to close the modal
+  const closeModal = () => {
+    setIsModalOpen(false);
   };
 
   return (
@@ -75,22 +86,42 @@ function App() {
 
       {/* Buttons for Desktop and Mobile */}
       <div className="button-row mb-3 text-center mt-4">
-      <DownloadButton userText={userText} fontSize={fontSize} fontColor={fontColor} />
+        <DownloadButton userText={userText} fontSize={fontSize} fontColor={fontColor} />
         {isMobile ? (
           <button className="bttn btn-plus">+</button>
         ) : (
           <>
-            <button className="bttn btn-use">USE CONDITIONS</button>
-            
-            <a href="https://www.paypal.me/VicSegen?locale.x=fr_FR"  target="_blank" rel="noopener noreferrer">
-            <button className="bttn btn-donate">DONATE</button>
+            <button className="bttn btn-use" onClick={openModal}>
+              USE CONDITIONS
+            </button>
+
+            <a href="https://www.paypal.me/VicSegen?locale.x=fr_FR" target="_blank" rel="noopener noreferrer">
+              <button className="bttn btn-donate">DONATE</button>
             </a>
-            <a href="https://youtu.be/QgW_smQAwyE"  target="_blank" rel="noopener noreferrer">
-            <button className="bttn btn-2">2</button>
+            <a href="https://youtu.be/QgW_smQAwyE" target="_blank" rel="noopener noreferrer">
+              <button className="bttn btn-2">2</button>
             </a>
           </>
         )}
       </div>
+
+      {/* Modal */}
+      {isModalOpen && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <button className="modal-close" onClick={closeModal}>
+              &times;
+            </button>
+            <p>
+              THIS FONT IS AVAILABLE FOR PERSONAL USE ONLY; CREDIT GENCIVES OR
+              GENCIVE5 ON INSTAGRAM. FOR ANY COMMERCIAL USE PLEASE CONTACT ME AT @GENCIVE5 OR
+              VIC.SEGEN@GMAIL.COM
+              <br />
+              YOU CAN SUPPORT BY MAKING A DONATION. &lt;3
+            </p>
+          </div>
+        </div>
+      )}
 
       <AnimatedFavicon />
     </div>
