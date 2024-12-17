@@ -82,8 +82,12 @@ function App() {
           <>
             <button className="bttn btn-use">USE CONDITIONS</button>
             
+            <a href="https://www.paypal.me/VicSegen?locale.x=fr_FR"  target="_blank" rel="noopener noreferrer">
             <button className="bttn btn-donate">DONATE</button>
+            </a>
+            <a href="https://youtu.be/QgW_smQAwyE"  target="_blank" rel="noopener noreferrer">
             <button className="bttn btn-2">2</button>
+            </a>
           </>
         )}
       </div>
