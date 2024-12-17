@@ -161,19 +161,18 @@ body {
 }
 
   
-  
-  .texte {
-    font-family: 'din1451';
-  }
+.texte {
+  font-family: 'din1451';
+}
 
-  .button-row {
-    display: flex;
-    justify-content: flex-start;
-  }
+.button-row {
+  display: flex;
+  justify-content: flex-start;
+}
   
-  .button-row .btn {
-    min-width: 100px;
-  }
+.button-row .btn {
+  min-width: 100px;
+}
 
   .button-red {
     border-radius: 50%;
@@ -284,6 +283,7 @@ body {
   text-align: center;
   font-size: 16px;
   line-height: 1.5;
+  font-family: 'din1451', sans-serif;
 }
 
 /* Close Button (Cross) */
