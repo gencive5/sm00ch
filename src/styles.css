@@ -304,7 +304,6 @@ body {
   color: #c10303;
 }
 
-/* Plus Menu Modal */
 .plus-menu-modal {
   display: flex;
   flex-direction: column;
@@ -338,11 +337,12 @@ body {
 }
 
 .modal-content {
-  background: rgb(0, 0, 0);
+  background: white;
   padding: 20px;
   border-radius: 8px;
   max-width: 90%;
   text-align: center;
+  position: relative;
 }
 
 .modal-close {

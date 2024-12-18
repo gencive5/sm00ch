@@ -35,14 +35,9 @@ function App() {
     setFontColor(color);
   };
 
-  // Function to open the use conditions modal
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-
-  // Function to close the use conditions modal
-  const closeModal = () => {
-    setIsModalOpen(false);
+  // Toggle the use conditions modal
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
   };
 
   // Toggle the plus menu modal
@@ -101,15 +96,15 @@ function App() {
             {isPlusMenuOpen && (
               <div className="plus-menu-modal">
                 <a href="/sm00ch.woff" download="sm00ch.woff" className="bttn btn-download">
-          DOWNLOAD FONT
-        </a>
-                <button className="bttn btn-use" onClick={openModal}>
+                  DOWNLOAD FONT
+                </a>
+                <button className="bttn btn-use" onClick={toggleModal}>
                   USE CONDITIONS
                 </button>
                 <a href="https://www.paypal.me/VicSegen?locale.x=fr_FR" target="_blank" rel="noopener noreferrer">
-              <button className="bttn btn-donate">DONATE</button>
-            </a>
-            <a href="https://youtu.be/QgW_smQAwyE" target="_blank" rel="noopener noreferrer">
+                  <button className="bttn btn-donate">DONATE</button>
+                </a>
+                <a href="https://youtu.be/QgW_smQAwyE" target="_blank" rel="noopener noreferrer">
                   <button className="bttn btn-2">2</button>
                 </a>
               </div>
@@ -117,8 +112,8 @@ function App() {
           </>
         ) : (
           <>
-            <button className="bttn btn-use" onClick={openModal}>
-              USE CONDITIONS
+            <button className="bttn btn-use" onClick={toggleModal}>
+              {isModalOpen ? '✖' : 'USE CONDITIONS'}
             </button>
 
             <a href="https://www.paypal.me/VicSegen?locale.x=fr_FR" target="_blank" rel="noopener noreferrer">
@@ -132,14 +127,15 @@ function App() {
       </div>
 
       {/* Modal for Use Conditions */}
+   
       {isModalOpen && (
-        <div className="modal-overlay">
-          <div className="modal-content">
-            <button className="modal-close" onClick={closeModal}>
-              &times;
-            </button>
+        <div className="modal-overlay" onClick={toggleModal}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            
             <p>
-              THIS FONT IS AVAILABLE FOR PERSONAL USE ONLY; CREDIT GENCIVES OR GENCIVE5 ON INSTAGRAM. FOR ANY COMMERCIAL USE PLEASE CONTACT ME AT @GENCIVE5 OR VIC.SEGEN@GMAIL.COM
+              THIS FONT IS AVAILABLE FOR PERSONAL USE ONLY; CREDIT GENCIVE5 ON INSTAGRAM.
+              <br />
+              FOR ANY COMMERCIAL USE PLEASE CONTACT ME AT @GENCIVE5 OR VIC.SEGEN@GMAIL.COM
               <br />
               YOU CAN DONATE IF YOU WANT.
             </p>
