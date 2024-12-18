@@ -111,6 +111,7 @@ body {
   .title {
     color: #000000;
     font-size: 3rem;
+    padding-bottom: 1rem;
   }
   
 /* Base button style */
@@ -123,7 +124,7 @@ body {
   color: #000000;
   cursor: pointer;
   display: inline-block;
-  font-size: 25px;
+  font-size: 1.5rem;
   font-weight: 600;
   line-height: 20px;
   margin: 0;
@@ -136,7 +137,7 @@ body {
   transition: box-shadow 0.2s, transform 0.1s;
   user-select: none;
   -webkit-user-select: none;
-  min-width: 150px; /* Ensures all buttons are at least this width */
+  min-width: 15rem; /* Ensures all buttons are at least this width */
 }
 
 /* Modifier classes for different button colors */
@@ -162,8 +163,6 @@ body {
 }
 
 
-
-  
 .texte {
   font-family: 'din1451';
 }

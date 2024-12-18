@@ -47,7 +47,7 @@ function App() {
   return (
     <div className="container mt-5">
       <h1 className="title">sm00ch</h1>
-
+      
       {/* Buttons */}
       <div className="button-row mb-3">
         <div className="custom-slider-container">
