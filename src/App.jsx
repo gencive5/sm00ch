@@ -10,6 +10,7 @@ function App() {
   const [fontColor, setFontColor] = useState('#000000');
   const [isMobile, setIsMobile] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isPlusMenuOpen, setIsPlusMenuOpen] = useState(false);
 
   const firstInputRef = useRef(null);
 
@@ -34,20 +35,25 @@ function App() {
     setFontColor(color);
   };
 
-  // Function to open the modal
+  // Function to open the use conditions modal
   const openModal = () => {
     setIsModalOpen(true);
   };
 
-  // Function to close the modal
+  // Function to close the use conditions modal
   const closeModal = () => {
     setIsModalOpen(false);
+  };
+
+  // Toggle the plus menu modal
+  const togglePlusMenu = () => {
+    setIsPlusMenuOpen(!isPlusMenuOpen);
   };
 
   return (
     <div className="container mt-5">
       <h1 className="title">sm00ch</h1>
-      
+
       {/* Buttons */}
       <div className="button-row mb-3">
         <div className="custom-slider-container">
@@ -88,7 +94,22 @@ function App() {
       <div className="button-row mb-3 text-center mt-4">
         <DownloadButton userText={userText} fontSize={fontSize} fontColor={fontColor} />
         {isMobile ? (
-          <button className="bttn btn-plus">+</button>
+          <>
+            <button className="bttn btn-plus" onClick={togglePlusMenu}>
+              {isPlusMenuOpen ? '✖' : '+'}
+            </button>
+            {isPlusMenuOpen && (
+              <div className="plus-menu-modal">
+                <DownloadButton userText={userText} fontSize={fontSize} fontColor={fontColor} />
+                <button className="bttn btn-use" onClick={openModal}>
+                  USE CONDITIONS
+                </button>
+                <a href="https://youtu.be/QgW_smQAwyE" target="_blank" rel="noopener noreferrer">
+                  <button className="bttn btn-2">VIDEO</button>
+                </a>
+              </div>
+            )}
+          </>
         ) : (
           <>
             <button className="bttn btn-use" onClick={openModal}>
@@ -105,7 +126,7 @@ function App() {
         )}
       </div>
 
-      {/* Modal */}
+      {/* Modal for Use Conditions */}
       {isModalOpen && (
         <div className="modal-overlay">
           <div className="modal-content">
@@ -113,11 +134,9 @@ function App() {
               &times;
             </button>
             <p>
-              THIS FONT IS AVAILABLE FOR PERSONAL USE ONLY; CREDIT GENCIVES OR
-              GENCIVE5 ON INSTAGRAM. FOR ANY COMMERCIAL USE PLEASE CONTACT ME AT @GENCIVE5 OR
-              VIC.SEGEN@GMAIL.COM
+              THIS FONT IS AVAILABLE FOR PERSONAL USE ONLY; CREDIT GENCIVES OR GENCIVE5 ON INSTAGRAM. FOR ANY COMMERCIAL USE PLEASE CONTACT ME AT @GENCIVE5 OR VIC.SEGEN@GMAIL.COM
               <br />
-              YOU CAN SUPPORT BY MAKING A DONATION. &lt;3
+              SUPPORT MY WORK BY DONATING. ❤️
             </p>
           </div>
         </div>
