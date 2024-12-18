@@ -161,6 +161,8 @@ body {
   font-size: 30px; /* Unique font size for this button */
 }
 
+
+
   
 .texte {
   font-family: 'din1451';
@@ -168,7 +170,7 @@ body {
 
 .button-row {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between; 
 }
   
 .button-row .btn {
