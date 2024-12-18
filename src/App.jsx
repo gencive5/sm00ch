@@ -6,7 +6,7 @@ import DownloadButton from './DownloadButton';
 
 function App() {
   const [userText, setUserText] = useState('');
-  const [fontSize, setFontSize] = useState(42);
+  const [fontSize, setFontSize] = useState(150);
   const [fontColor, setFontColor] = useState('#000000');
   const [isMobile, setIsMobile] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -54,7 +54,7 @@ function App() {
           <input
             type="range"
             min="24"
-            max="120"
+            max="150"
             value={fontSize}
             onChange={(e) => setFontSize(Number(e.target.value))}
             className="custom-slider"
