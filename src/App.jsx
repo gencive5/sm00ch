@@ -100,12 +100,17 @@ function App() {
             </button>
             {isPlusMenuOpen && (
               <div className="plus-menu-modal">
-                <DownloadButton userText={userText} fontSize={fontSize} fontColor={fontColor} />
+                <a href="/sm00ch.woff" download="sm00ch.woff" className="bttn btn-download">
+          DOWNLOAD FONT
+        </a>
                 <button className="bttn btn-use" onClick={openModal}>
                   USE CONDITIONS
                 </button>
-                <a href="https://youtu.be/QgW_smQAwyE" target="_blank" rel="noopener noreferrer">
-                  <button className="bttn btn-2">VIDEO</button>
+                <a href="https://www.paypal.me/VicSegen?locale.x=fr_FR" target="_blank" rel="noopener noreferrer">
+              <button className="bttn btn-donate">DONATE</button>
+            </a>
+            <a href="https://youtu.be/QgW_smQAwyE" target="_blank" rel="noopener noreferrer">
+                  <button className="bttn btn-2">2</button>
                 </a>
               </div>
             )}
@@ -136,7 +141,7 @@ function App() {
             <p>
               THIS FONT IS AVAILABLE FOR PERSONAL USE ONLY; CREDIT GENCIVES OR GENCIVE5 ON INSTAGRAM. FOR ANY COMMERCIAL USE PLEASE CONTACT ME AT @GENCIVE5 OR VIC.SEGEN@GMAIL.COM
               <br />
-              SUPPORT MY WORK BY DONATING. ❤️
+              YOU CAN DONATE IF YOU WANT.
             </p>
           </div>
         </div>
