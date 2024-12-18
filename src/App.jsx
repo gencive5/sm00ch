@@ -66,9 +66,9 @@ function App() {
             className="custom-slider"
           />
         </div>
-        <button className="button-red" onClick={() => changeFontColor('#B00F20')}></button>
-        <button className="button-fuchsia" onClick={() => changeFontColor('#99003F')}></button>
-        <button className="button-pink" onClick={() => changeFontColor('#B648AD')}></button>
+        <button className="button-red" onClick={() => changeFontColor('#C10303')}></button>
+        <button className="button-fuchsia" onClick={() => changeFontColor('#F70841')}></button>
+        <button className="button-pink" onClick={() => changeFontColor('#FF3EA3')}></button>
         <button className="button-black" onClick={() => changeFontColor('#000000')}></button>
       </div>
 

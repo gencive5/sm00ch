@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
 const AnimatedFavicon = () => {
-  const colors = ['#B00F20', '#99003F', '#B648AD'];
+  const colors = ['#C10303', '#F70841', '#FF3EA3'];
   let colorIndex = 0;
 
   useEffect(() => {
