@@ -67,7 +67,7 @@ const DownloadButton = ({ userText, fontSize, fontColor }) => {
           DOWNLOAD PNG
         </button>
       ) : (
-        <a href="/sm00ch.woff" download="sm00ch.woff" className="bttn btn-download">
+        <a href="/sm00ch.zip" download="sm00ch.zip" className="bttn btn-download">
           DOWNLOAD FONT
         </a>
       )}

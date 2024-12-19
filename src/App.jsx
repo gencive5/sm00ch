@@ -95,7 +95,7 @@ function App() {
             </button>
             {isPlusMenuOpen && (
               <div className="plus-menu-modal">
-                <a href="/sm00ch.woff" download="sm00ch.woff" className="bttn btn-download">
+                <a href="/sm00ch.zip" download="sm00ch.zip" className="bttn btn-download">
                   DOWNLOAD FONT
                 </a>
                 <button className="bttn btn-use" onClick={toggleModal}>
