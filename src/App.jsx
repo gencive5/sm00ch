@@ -8,9 +8,9 @@ function App() {
   const [userText, setUserText] = useState('');
   const [fontSize, setFontSize] = useState(150);
   const [fontColor, setFontColor] = useState('#000000');
-  const [isMobile, setIsMobile] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isPlusMenuOpen, setIsPlusMenuOpen] = useState(false);
+  const [showPlusButton, setShowPlusButton] = useState(false);
 
   const firstInputRef = useRef(null);
 
@@ -20,20 +20,16 @@ function App() {
     }
   }, []);
 
-  // Detect if the device is mobile
+  // Detect when the screen width is small enough for the plus button to appear
   useEffect(() => {
-    const checkIsMobile = () => {
-      setIsMobile(window.innerWidth <= 768);
+    const handleResize = () => {
+      setShowPlusButton(window.innerWidth <= 768);
     };
 
-    checkIsMobile();
-    window.addEventListener('resize', checkIsMobile);
-    return () => window.removeEventListener('resize', checkIsMobile);
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
-
-  const changeFontColor = (color) => {
-    setFontColor(color);
-  };
 
   // Toggle the use conditions modal
   const toggleModal = () => {
@@ -61,10 +57,10 @@ function App() {
             className="custom-slider"
           />
         </div>
-        <button className="button-red" onClick={() => changeFontColor('#C10303')}></button>
-        <button className="button-fuchsia" onClick={() => changeFontColor('#F70841')}></button>
-        <button className="button-pink" onClick={() => changeFontColor('#FF3EA3')}></button>
-        <button className="button-black" onClick={() => changeFontColor('#000000')}></button>
+        <button className="button-red" onClick={() => setFontColor('#C10303')}></button>
+        <button className="button-fuchsia" onClick={() => setFontColor('#F70841')}></button>
+        <button className="button-pink" onClick={() => setFontColor('#FF3EA3')}></button>
+        <button className="button-black" onClick={() => setFontColor('#000000')}></button>
       </div>
 
       {/* First Input Field */}
@@ -87,12 +83,19 @@ function App() {
 
       {/* Buttons for Desktop and Mobile */}
       <div className="button-row mb-3 text-center mt-4">
-        <DownloadButton userText={userText} fontSize={fontSize} fontColor={fontColor} />
-        {isMobile ? (
+        <DownloadButton
+          userText={userText}
+          fontSize={fontSize}
+          fontColor={fontColor}
+          showPlusButton={showPlusButton}
+        />
+
+        {showPlusButton ? (
           <>
             <button className="bttn btn-plus" onClick={togglePlusMenu}>
               {isPlusMenuOpen ? '✖' : '+'}
             </button>
+
             {isPlusMenuOpen && (
               <div className="plus-menu-modal">
                 <a href="/sm00ch.zip" download="sm00ch.zip" className="bttn btn-download">
@@ -115,7 +118,6 @@ function App() {
             <button className="bttn btn-use" onClick={toggleModal}>
               {isModalOpen ? '✖' : 'USE CONDITIONS'}
             </button>
-
             <a href="https://www.paypal.me/VicSegen?locale.x=fr_FR" target="_blank" rel="noopener noreferrer">
               <button className="bttn btn-donate">DONATE</button>
             </a>
@@ -127,11 +129,9 @@ function App() {
       </div>
 
       {/* Modal for Use Conditions */}
-   
       {isModalOpen && (
         <div className="modal-overlay" onClick={toggleModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            
             <p>
               THIS FONT IS AVAILABLE FOR PERSONAL USE ONLY; CREDIT GENCIVE5 ON INSTAGRAM.
               <br />
