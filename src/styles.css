@@ -33,7 +33,7 @@ body {
 
 .text-input {
   width: 100%;
-  height: 70px;
+  height: 5rem;
   padding: 10px;
   border: none;
   outline: none;
@@ -41,11 +41,12 @@ body {
   caret-color: black;
   font-family: 'din1451';
   text-transform: uppercase;
+  resize: none;
 }
 
 .text-input2 {
   width: 100%;
-  height: 300px;
+  height: 17rem;
   padding: 10px;
   border: none;
   outline: none;
@@ -53,7 +54,7 @@ body {
   caret-color: black;
   font-family: 'sm00ch';
   text-transform: uppercase;
-  overflow: hidden;
+  resize: none;
 }
 
 /* Add blinking caret effect */
@@ -360,18 +361,22 @@ body {
   .row2 {
     flex-direction: column;
     align-items: center;
+    gap: 10px; /* More gap for better separation */
   }
 
   .btn-plus {
-    order: 2; /* Move the Plus button below other buttons */
-    margin-top: 10px;
+    order: 2;           /* Ensure the Plus button appears below the Download button */
+    margin-top: 10px;   /* Add space between buttons */
   }
 
   .plus-menu-modal {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px; /* Space between buttons inside the modal */
+    gap: 10px;
     margin-top: 10px;
+    width: 100%;        /* Ensure modal stays within screen width */
+    padding: 0 10px;    /* Add padding to prevent overflow */
+    box-sizing: border-box;
   }
 }
