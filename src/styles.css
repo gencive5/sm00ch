@@ -355,3 +355,23 @@ body {
   cursor: pointer;
 }
 
+/* Responsive layout for smaller screens */
+@media (max-width: 600px) {
+  .row2 {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn-plus {
+    order: 2; /* Move the Plus button below other buttons */
+    margin-top: 10px;
+  }
+
+  .plus-menu-modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* Space between buttons inside the modal */
+    margin-top: 10px;
+  }
+}

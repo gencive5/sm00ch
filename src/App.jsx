@@ -82,7 +82,7 @@ function App() {
       />
 
       {/* Buttons for Desktop and Mobile */}
-      <div className="button-row mb-3 text-center mt-4">
+      <div className="button-row row2 mb-3 text-center mt-4">
         <DownloadButton
           userText={userText}
           fontSize={fontSize}
