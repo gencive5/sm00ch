@@ -366,8 +366,9 @@ body {
   }
 
   .btn-plus {
-    order: 2;           /* Ensure the Plus button appears below the Download button */
-    margin-top: 10px;   /* Add space between buttons */
+    order: 2;           
+    margin-top: 10px;
+    margin-bottom: 10px;    
   }
 
   .plus-menu-modal {
@@ -382,5 +383,10 @@ body {
     width: 90%;        
     max-width: 300px;  
     box-sizing: border-box;
+  }
+
+  .text-input,
+  .text-input2 {
+    max-height: 200px;
   }
 }
