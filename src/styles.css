@@ -181,41 +181,41 @@ body {
   .button-red {
     border-radius: 50%;
     height: 2rem;
-  width: 2rem;
-  background-color: #c10303;
-  color: white;
-  border: none;
-  padding: 5px;
+    width: 2rem;
+    background-color: #c10303;
+    color: white;
+    border: none;
+    padding: 5px;
   }
 
   .button-fuchsia {
     border-radius: 50%;
     height: 2rem;
-  width: 2rem;
-  background-color: #f70841;
-  color: white;
-  border: none;
-  padding: 5px;
+    width: 2rem;
+    background-color: #f70841;
+    color: white;
+    border: none;
+    padding: 5px;
   }
 
   .button-pink {
     border-radius: 50%;
     height: 2rem;
-  width: 2rem;
-  background-color: #ff3ea3;
-  color: white;
-  border: none;
-  padding: 5px;
+    width: 2rem;
+    background-color: #ff3ea3;
+    color: white;
+    border: none;
+    padding: 5px;
   }
 
   .button-black {
     border-radius: 50%;
     height: 2rem;
-  width: 2rem;
-  background-color: #000000;
-  color: white;
-  border: none;
-  padding: 5px;
+    width: 2rem;
+    background-color: #000000;
+    color: white;
+    border: none;
+    padding: 5px;
   }
 
 /* Container for custom slider */
@@ -359,6 +359,7 @@ body {
 /* Responsive layout for smaller screens */
 @media (max-width: 600px) {
   .row2 {
+    display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px; /* More gap for better separation */
@@ -374,9 +375,12 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    margin-top: 10px;
-    width: 100%;        /* Ensure modal stays within screen width */
-    padding: 0 10px;    /* Add padding to prevent overflow */
+    width: 100%;           
+    right: 0;         
+    left: 0;         
+    margin: 0 auto;    
+    width: 90%;        
+    max-width: 300px;  
     box-sizing: border-box;
   }
 }
