@@ -23,13 +23,6 @@ body {
  
 }
 
-/* Input Field Styling */
-.input-wrapper {
-  position: relative;
-  display: inline-block;
-  width: 100%;
-}
-
 
 .text-input {
   width: 100%;
@@ -60,46 +53,6 @@ body {
 /* Add blinking caret effect */
 .text-input:focus {
   animation: blink-caret 1s step-end infinite;
-}
-
-
-/* Display Zone Styling */
-.display-wrapper {
-  position: relative;
-  display: inline-block;
-  width: 100%;
-  margin-top: 20px;
-}
-
-
-.text-display {
-  width: 100%;
-  min-height: 150px;
-  padding: 10px;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  margin: 0 auto;
-  text-align: left;
-  white-space: pre-wrap;
-  font-family: 'sm00ch';
-  font-size: 2rem;
-}
-
-/* Caret Styling */
-.caret {
-  display: inline-block;
-  width: 2px;
-  height: 1em;
-  background-color: black;
-  animation: blink 1s steps(1) infinite;
-  margin-left: 2px;
-}
-
-/* Blinking Animation */
-@keyframes blink {
-  50% {
-    opacity: 0;
-  }
 }
 
   
@@ -164,10 +117,6 @@ body {
   font-size: 30px; /* Unique font size for this button */
 }
 
-
-.texte {
-  font-family: 'din1451';
-}
 
 .button-row {
   display: flex;
@@ -289,21 +238,6 @@ body {
   font-family: 'din1451', sans-serif;
 }
 
-/* Close Button (Cross) */
-.modal-close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: none;
-  border: none;
-  font-size: 24px;
-  cursor: pointer;
-  color: #333;
-}
-
-.modal-close:hover {
-  color: #c10303;
-}
 
 .plus-menu-modal {
   display: flex;
