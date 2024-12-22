@@ -35,7 +35,7 @@ const DownloadButton = ({ userText, fontSize, fontColor, showPlusButton }) => {
 
     const link = document.createElement('a');
     link.href = canvas.toDataURL('image/png');
-    link.download = 'text-image.png';
+    link.download = 'sm00ch.png';
     link.click();
   };
 
