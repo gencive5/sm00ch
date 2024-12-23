@@ -7,6 +7,7 @@ import DownloadButton from './DownloadButton';
 function App() {
   const [userText, setUserText] = useState('');
   const [fontSize, setFontSize] = useState(150);
+  const [mobileFontSize] = useState(80); // New state for mobile font size
   const [fontColor, setFontColor] = useState('#000000');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isPlusMenuOpen, setIsPlusMenuOpen] = useState(false);
@@ -20,23 +21,26 @@ function App() {
     }
   }, []);
 
-  // Detect when the screen width is small enough for the plus button to appear
+  // Detect screen width for adjusting font size
   useEffect(() => {
     const handleResize = () => {
       setShowPlusButton(window.innerWidth <= 768);
+      if (window.innerWidth <= 768) {
+        setFontSize(mobileFontSize); // Use mobile font size for smaller screens
+      } else {
+        setFontSize(150); // Reset to default font size for larger screens
+      }
     };
 
     handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  }, [mobileFontSize]);
 
-  // Toggle the use conditions modal
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
   };
 
-  // Toggle the plus menu modal
   const togglePlusMenu = () => {
     setIsPlusMenuOpen(!isPlusMenuOpen);
   };
