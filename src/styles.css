@@ -33,6 +33,7 @@ body {
   font-family: 'bebas';
   text-transform: uppercase;
   resize: none;
+  overflow: hidden;
 }
 
 .text-input2 {
@@ -46,6 +47,7 @@ body {
   font-family: 'sm00ch';
   text-transform: uppercase;
   resize: none;
+  overflow: hidden;
 }
 
 /* Add blinking caret effect */
@@ -220,7 +222,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  z-index: 700;
 }
 
 /* Modal Content */
@@ -247,7 +249,7 @@ body {
  
   padding: 15px;
  
-  z-index: 1000;
+  z-index: 600;
 }
 
 .plus-menu-modal .bttn {
@@ -265,7 +267,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
+  z-index: 700;
 }
 
 .modal-content {
@@ -285,6 +287,7 @@ body {
   border: none;
   font-size: 24px;
   cursor: pointer;
+  z-index: 1000;
 }
 
 /* Responsive layout for smaller screens */
@@ -299,7 +302,8 @@ body {
   .btn-plus {
     order: 2;           
     margin-top: 10px;
-    margin-bottom: 10px;    
+    margin-bottom: 10px;   
+     
   }
 
   .plus-menu-modal {
