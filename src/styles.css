@@ -79,7 +79,8 @@ body {
   color: #000000;
   cursor: pointer;
   display: inline-block;
-  font-size: 1.5rem;
+  font-family: 'bebas';
+  font-size: 2.3rem;
   font-weight: 600;
   line-height: 20px;
   margin: 0;
@@ -233,7 +234,7 @@ body {
   width: 90%;
   max-width: 15px;
   text-align: center;
-  font-size: 16px;
+  font-size: 2rem;
   line-height: 1.5;
   font-family: 'bebas';
 }
