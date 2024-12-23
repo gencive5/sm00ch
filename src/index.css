@@ -18,8 +18,8 @@ body {
   }
 
   @font-face {
-    font-family: 'din1451';
-    src: local('din1451'), url('assets/din1451.woff') format('woff'), url('assets/din1451.woff2') format('woff2');
+    font-family: 'bebas';
+    src: local('bebas'), url('assets/BebasNeue-Regular.woff') format('woff'), url('assets/BebasNeue-Regular.woff2') format('woff2');
   
     font-weight: 330; /* Adjust font weight if necessary */
     font-style: normal; /* Adjust font style if necessary */
