@@ -7,7 +7,7 @@ import DownloadButton from './DownloadButton';
 function App() {
   const [userText, setUserText] = useState('');
   const [fontSize, setFontSize] = useState(150);
-  const [mobileFontSize] = useState(80); // New state for mobile font size
+  const [mobileFontSize] = useState(60); // New state for mobile font size
   const [fontColor, setFontColor] = useState('#000000');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isPlusMenuOpen, setIsPlusMenuOpen] = useState(false);
