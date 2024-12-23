@@ -33,10 +33,15 @@ const DownloadButton = ({ userText, fontSize, fontColor, showPlusButton }) => {
     context.fillStyle = fontColor;
     context.fillText(userText, padding, textHeight + padding / 2);
 
+    // Automatically trigger download
     const link = document.createElement('a');
     link.href = canvas.toDataURL('image/png');
     link.download = 'sm00ch.png';
+
+    // Append to the DOM to ensure it works in all browsers
+    document.body.appendChild(link);
     link.click();
+    document.body.removeChild(link);
   };
 
   return showPlusButton ? (
