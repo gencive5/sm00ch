@@ -75,14 +75,16 @@ body {
   border: 1.5px solid #000000;
   border-radius: 5px;
   width: 10rem;
+  height: 3rem;
   box-sizing: border-box;
   color: #000000;
   cursor: pointer;
-  display: inline-block;
+  display: flex; /* Use flexbox for centering */
+  align-items: center; /* Vertically centers text */
+  justify-content: center; /* Horizontally centers text */
   font-family: 'bebas';
   font-size: 2.3rem;
-  font-weight: 600;
-  line-height: 20px;
+  line-height: normal; /* Ensures proper spacing */
   margin: 0;
   outline: none;
   padding: 0.7rem;
@@ -93,23 +95,23 @@ body {
   transition: box-shadow 0.2s, transform 0.1s;
   user-select: none;
   -webkit-user-select: none;
-  min-width: 14rem; /* Ensures all buttons are at least this width */
+  min-width: 14rem; 
 }
 
 /* Modifier classes for different button colors */
 .btn-download {
   background-color: #c10303;
-  font-family: 'bebas',
+  font-family: 'bebas';
 }
 
 .btn-donate {
   background-color: #ff3ea3;
-  font-family: 'bebas',
+  font-family: 'bebas';
 }
 
 .btn-use {
   background-color: #f70841;
-  font-family: 'bebas',
+  font-family: 'bebas';
 }
 
 .btn-2 {
@@ -119,14 +121,13 @@ body {
   font-size: 30px; /* Unique font size for this button */
 }
 
-
 .button-row {
   display: flex;
   justify-content: space-between; 
   padding-left: 1.8rem;
   padding-right: 1.8rem;
 }
-  
+
 .button-row .btn {
   min-width: 100px;
 }
@@ -326,4 +327,18 @@ body {
   .text-input2 {
     max-height: 200px;
   }
+}
+
+
+a:link { 
+  text-decoration: none; 
+} 
+a:visited { 
+  text-decoration: none; 
+} 
+a:hover { 
+  text-decoration: none; 
+} 
+a:active { 
+  text-decoration: none; 
 }
