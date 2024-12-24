@@ -74,7 +74,7 @@ body {
   background-color: #ffffff;
   border: 1.5px solid #000000;
   border-radius: 5px;
-  width: 15rem;
+  width: 10rem;
   box-sizing: border-box;
   color: #000000;
   cursor: pointer;
@@ -85,7 +85,7 @@ body {
   line-height: 20px;
   margin: 0;
   outline: none;
-  padding: 10px 6px;
+  padding: 0.7rem;
   position: relative;
   text-align: center;
   text-decoration: none;
@@ -93,7 +93,7 @@ body {
   transition: box-shadow 0.2s, transform 0.1s;
   user-select: none;
   -webkit-user-select: none;
-  min-width: 15rem; /* Ensures all buttons are at least this width */
+  min-width: 14rem; /* Ensures all buttons are at least this width */
 }
 
 /* Modifier classes for different button colors */
@@ -113,7 +113,8 @@ body {
 }
 
 .btn-2 {
-  background-color: #ffffff;
+  background-color: #000000;
+  color: white;
   font-family: 'sm00ch', sans-serif;
   font-size: 30px; /* Unique font size for this button */
 }
@@ -122,6 +123,8 @@ body {
 .button-row {
   display: flex;
   justify-content: space-between; 
+  padding-left: 1.8rem;
+  padding-right: 1.8rem;
 }
   
 .button-row .btn {
@@ -244,7 +247,7 @@ body {
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: 50px;
+  top: 100px;
   right: 20px;
   padding: 15px;
   z-index: 600;

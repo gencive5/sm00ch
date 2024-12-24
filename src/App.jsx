@@ -7,7 +7,7 @@ import DownloadButton from './DownloadButton';
 function App() {
   const [userText, setUserText] = useState('');
   const [fontSize, setFontSize] = useState(150);
-  const [mobileFontSize] = useState(60); // New state for mobile font size
+  const [mobileFontSize] = useState(50); // New state for mobile font size
   const [fontColor, setFontColor] = useState('#000000');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isPlusMenuOpen, setIsPlusMenuOpen] = useState(false);
@@ -97,7 +97,7 @@ function App() {
         {showPlusButton ? (
           <>
             <button className="bttn btn-plus" onClick={togglePlusMenu}>
-              {isPlusMenuOpen ? '✖' : '+'}
+              {isPlusMenuOpen ? 'x' : '+'}
             </button>
 
             {isPlusMenuOpen && (
@@ -112,7 +112,7 @@ function App() {
                   <button className="bttn btn-donate">DONATE</button>
                 </a>
                 <a href="https://youtu.be/QgW_smQAwyE" target="_blank" rel="noopener noreferrer">
-                  <button className="bttn btn-2">2</button>
+                  <button className="bttn btn-2">sm00ch 2</button>
                 </a>
               </div>
             )}
@@ -126,7 +126,7 @@ function App() {
               <button className="bttn btn-donate">DONATE</button>
             </a>
             <a href="https://youtu.be/QgW_smQAwyE" target="_blank" rel="noopener noreferrer">
-              <button className="bttn btn-2">2</button>
+              <button className="bttn btn-2">sm00ch 2</button>
             </a>
           </>
         )}
@@ -137,7 +137,7 @@ function App() {
         <div className="modal-overlay" onClick={toggleModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <p>
-              THIS FONT IS AVAILABLE FOR PERSONAL USE ONLY; CREDIT GENCIVE5 ON INSTAGRAM.
+              THIS FONT IS AVAILABLE FOR PERSONAL USE ONLY, CREDIT GENCIVE5 ON INSTAGRAM.
               <br />
               FOR ANY COMMERCIAL USE PLEASE CONTACT ME AT @GENCIVE5 OR VIC.SEGEN@GMAIL.COM
               <br />
