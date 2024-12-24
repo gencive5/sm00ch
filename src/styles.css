@@ -72,7 +72,7 @@ body {
 /* Base button style */
 .bttn {
   background-color: #ffffff;
-  border: 1.5px solid #000000;
+  border: 0px solid #000000;
   border-radius: 5px;
   width: 10rem;
   height: 3rem;
