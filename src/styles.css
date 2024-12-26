@@ -18,7 +18,7 @@ body {
 
 .container {
   text-align: center;
-  margin-top: 4rem;
+  margin-top: 0rem;
   background-color: #ffffff;
 }
 
@@ -57,10 +57,9 @@ body {
   animation: blink-caret 1s step-end infinite;
 }
 
-  
   h1 {
     text-align: center;
-    margin-top: 3rem;
+    margin-top: 0;
     font-family: 'sm00ch';
     color: #000000;
   }
@@ -304,11 +303,17 @@ body {
   }
 
   .btn-plus {
-    order: 2;           
-    margin-top: 10px;
-    margin-bottom: 10px;  
+    position: relative;
+  transition: transform 0.2s ease;
+  order: 2;           
+  margin-top: 10px;
+  margin-bottom: 10px; 
+      
     border: 1px solid #000000; 
-     
+  }
+
+  .btn-plus.active {
+    transform: translateY(0); /* Maintain position when toggled */
   }
 
   .plus-menu-modal {
