@@ -3,11 +3,13 @@ import './styles.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AnimatedFavicon from './animatedfavicon';
 import DownloadButton from './DownloadButton';
+import ColorButtons from './ColorButtons';
+import FontSizeSlider from './FontSizeSlider';
 
 function App() {
   const [userText, setUserText] = useState('');
   const [fontSize, setFontSize] = useState(150);
-  const [mobileFontSize] = useState(50); // New state for mobile font size
+  const [mobileFontSize] = useState(50);
   const [fontColor, setFontColor] = useState('#000000');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isPlusMenuOpen, setIsPlusMenuOpen] = useState(false);
@@ -21,14 +23,13 @@ function App() {
     }
   }, []);
 
-  // Detect screen width for adjusting font size
   useEffect(() => {
     const handleResize = () => {
       setShowPlusButton(window.innerWidth <= 768);
       if (window.innerWidth <= 768) {
-        setFontSize(mobileFontSize); // Use mobile font size for smaller screens
+        setFontSize(mobileFontSize);
       } else {
-        setFontSize(150); // Reset to default font size for larger screens
+        setFontSize(150);
       }
     };
 
@@ -37,34 +38,18 @@ function App() {
     return () => window.removeEventListener('resize', handleResize);
   }, [mobileFontSize]);
 
-  const toggleModal = () => {
-    setIsModalOpen(!isModalOpen);
-  };
+  const toggleModal = () => setIsModalOpen(!isModalOpen);
 
-  const togglePlusMenu = () => {
-    setIsPlusMenuOpen(!isPlusMenuOpen);
-  };
+  const togglePlusMenu = () => setIsPlusMenuOpen(!isPlusMenuOpen);
 
   return (
     <div className="container mt-5">
       <h1 className="title">sm00ch</h1>
 
-      {/* Buttons */}
+      {/* Font Size Slider and Color Buttons */}
       <div className="button-row mb-3">
-        <div className="custom-slider-container">
-          <input
-            type="range"
-            min="30"
-            max="150"
-            value={fontSize}
-            onChange={(e) => setFontSize(Number(e.target.value))}
-            className="custom-slider"
-          />
-        </div>
-        <button className="button-red" onClick={() => setFontColor('#C10303')}></button>
-        <button className="button-fuchsia" onClick={() => setFontColor('#F70841')}></button>
-        <button className="button-pink" onClick={() => setFontColor('#FF3EA3')}></button>
-        <button className="button-black" onClick={() => setFontColor('#000000')}></button>
+        <FontSizeSlider fontSize={fontSize} setFontSize={setFontSize} />
+        <ColorButtons setFontColor={setFontColor} />
       </div>
 
       {/* First Input Field */}
