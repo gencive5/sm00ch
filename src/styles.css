@@ -303,18 +303,16 @@ body {
   }
 
   .btn-plus {
-    position: relative;
-  transition: transform 0.2s ease;
-  order: 2;           
-  margin-top: 10px;
-  margin-bottom: 10px; 
-      
+    position: fixed;
+    bottom: 20px; /* Distance from the bottom of the screen */
+    right: 20px; /* Distance from the right side of the screen */
+    z-index: 1000; /* Ensure it stays on top */
+    transition: transform 0.2s ease; /* Smooth transition for button toggle */
+    text-align: center;
     border: 1px solid #000000; 
+    align-items: center;
   }
 
-  .btn-plus.active {
-    transform: translateY(0); /* Maintain position when toggled */
-  }
 
   .plus-menu-modal {
     display: flex;

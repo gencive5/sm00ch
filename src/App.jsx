@@ -72,12 +72,14 @@ function App() {
 
       {/* Buttons for Desktop and Mobile */}
       <div className="button-row row2 mb-3 text-center mt-4">
-        <DownloadButton
-          userText={userText}
-          fontSize={fontSize}
-          fontColor={fontColor}
-          showPlusButton={showPlusButton}
-        />
+        {!isPlusMenuOpen && (
+          <DownloadButton
+            userText={userText}
+            fontSize={fontSize}
+            fontColor={fontColor}
+            showPlusButton={showPlusButton}
+          />
+        )}
 
         {showPlusButton ? (
           <>
@@ -93,10 +95,18 @@ function App() {
                 <button className="bttn btn-use" onClick={toggleModal}>
                   USE CONDITIONS
                 </button>
-                <a href="https://www.paypal.me/VicSegen?locale.x=fr_FR" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://www.paypal.me/VicSegen?locale.x=fr_FR"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <button className="bttn btn-donate">DONATE</button>
                 </a>
-                <a href="https://youtu.be/QgW_smQAwyE" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://youtu.be/QgW_smQAwyE"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <button className="bttn btn-2">sm00ch 2</button>
                 </a>
               </div>
@@ -107,10 +117,18 @@ function App() {
             <button className="bttn btn-use" onClick={toggleModal}>
               {isModalOpen ? '✖' : 'USE CONDITIONS'}
             </button>
-            <a href="https://www.paypal.me/VicSegen?locale.x=fr_FR" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://www.paypal.me/VicSegen?locale.x=fr_FR"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <button className="bttn btn-donate">DONATE</button>
             </a>
-            <a href="https://youtu.be/QgW_smQAwyE" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://youtu.be/QgW_smQAwyE"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <button className="bttn btn-2">sm00ch 2</button>
             </a>
           </>
