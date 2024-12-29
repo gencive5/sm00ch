@@ -25,11 +25,15 @@ function App() {
 
   useEffect(() => {
     const handleResize = () => {
-      setShowPlusButton(window.innerWidth <= 768);
-      if (window.innerWidth <= 768) {
-        setFontSize(mobileFontSize);
-      } else {
+      const isMobile = window.innerWidth <= 768;
+      setShowPlusButton(isMobile);
+
+      // Reset plus menu state and font size for desktop view
+      if (!isMobile) {
+        setIsPlusMenuOpen(false);
         setFontSize(150);
+      } else {
+        setFontSize(mobileFontSize);
       }
     };
 

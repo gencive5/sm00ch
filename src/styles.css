@@ -249,14 +249,12 @@ body {
   display: flex;
   flex-direction: column;
   position: fixed; /* Use fixed to position relative to the viewport */
-  bottom: 80px; /* Adjust distance from the bottom */
+  bottom: 60px; /* Adjust distance from the bottom */
   left: 50%; /* Center horizontally */
   transform: translateX(-50%); /* Center by offsetting 50% of its width */
-  padding: 15px;
+  padding: 30px;
+  gap: 20px;
   z-index: 600; /* Ensure it stays on top */
-  background-color: white; /* Add a background color if necessary */
-  border-radius: 8px; /* Optional: rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: subtle shadow */
 }
 
 .plus-menu-modal .bttn {
