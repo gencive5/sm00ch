@@ -11,8 +11,8 @@ function App() {
   const [fontSize, setFontSize] = useState(150);
   const [mobileFontSize] = useState(50);
   const [fontColor, setFontColor] = useState('#000000');
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isPlusMenuOpen, setIsPlusMenuOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false); // "Use Conditions" modal
+  const [isPlusMenuOpen, setIsPlusMenuOpen] = useState(false); // Plus menu modal
   const [showPlusButton, setShowPlusButton] = useState(false);
 
   const firstInputRef = useRef(null);
@@ -42,9 +42,18 @@ function App() {
     return () => window.removeEventListener('resize', handleResize);
   }, [mobileFontSize]);
 
-  const toggleModal = () => setIsModalOpen(!isModalOpen);
+  const toggleModal = () => {
+    setIsModalOpen((prev) => !prev);
+    setIsPlusMenuOpen(false); // Close the plus menu when opening/closing "Use Conditions"
+  };
 
-  const togglePlusMenu = () => setIsPlusMenuOpen(!isPlusMenuOpen);
+  const togglePlusMenu = () => {
+    setIsPlusMenuOpen((prev) => !prev);
+    setIsModalOpen(false); // Close the "Use Conditions" modal when toggling plus menu
+  };
+
+  // Check if any modal is open
+  const isAnyModalOpen = isModalOpen || isPlusMenuOpen;
 
   return (
     <div className="container mt-5">
@@ -88,7 +97,7 @@ function App() {
         {showPlusButton ? (
           <>
             <button className="bttn btn-plus" onClick={togglePlusMenu}>
-              {isPlusMenuOpen ? 'X' : '+'}
+              {isAnyModalOpen ? 'X' : '+'}
             </button>
 
             {isPlusMenuOpen && (
