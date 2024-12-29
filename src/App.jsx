@@ -88,7 +88,7 @@ function App() {
         {showPlusButton ? (
           <>
             <button className="bttn btn-plus" onClick={togglePlusMenu}>
-              {isPlusMenuOpen ? '✖' : '+'}
+              {isPlusMenuOpen ? 'X' : '+'}
             </button>
 
             {isPlusMenuOpen && (
