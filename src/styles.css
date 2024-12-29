@@ -248,16 +248,21 @@ body {
 .plus-menu-modal {
   display: flex;
   flex-direction: column;
-  position: absolute;
-  top: 200px;
-  right: 20px;
+  position: fixed; /* Use fixed to position relative to the viewport */
+  bottom: 80px; /* Adjust distance from the bottom */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Center by offsetting 50% of its width */
   padding: 15px;
-  z-index: 600;
+  z-index: 600; /* Ensure it stays on top */
+  background-color: white; /* Add a background color if necessary */
+  border-radius: 8px; /* Optional: rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: subtle shadow */
 }
 
 .plus-menu-modal .bttn {
-  margin: 10px 0;
+  margin: 10px 0; /* Keeps buttons spaced out */
 }
+
 
 /* Overlay and Modal Content for Use Conditions */
 .modal-overlay {
@@ -284,15 +289,15 @@ body {
 
 .btn-plus {
   position: fixed;
-  bottom: 20px; /* Distance from the bottom of the screen */
-  right: 20px; 
+  bottom: 20px; /* Adjust distance from the bottom of the screen */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Center by offsetting 50% of its width */
   z-index: 1000; /* Ensure it stays on top */
   transition: transform 0.2s ease; /* Smooth transition for button toggle */
   text-align: center;
   border: 1px solid #000000; 
   align-items: center;
 }
-
 
 /* Responsive layout for smaller screens */
 @media (max-width: 600px) {
