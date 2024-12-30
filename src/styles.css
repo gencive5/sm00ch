@@ -324,13 +324,15 @@ body {
   .btn-download {
     background-color: #c10303;
     font-family: 'bebas';
-    
   }
-
 
   .text-input,
   .text-input2 {
     max-height: 200px;
+  }
+
+  .custom-slider-container {
+    width: 150px; /* Reduce width for mobile */
   }
 }
 
