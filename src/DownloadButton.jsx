@@ -17,8 +17,8 @@ const DownloadButton = ({ userText, fontSize, fontColor, showPlusButton }) => {
     const context = canvas.getContext('2d');
     const dpr = window.devicePixelRatio || 1;
 
-    const padding = 40 * dpr;
-    const scaleFactor = 1.5;
+    const padding = 80 * dpr; // Increased padding for larger frame
+    const scaleFactor = 2; // Increased scale factor for better resolution
 
     context.font = `${fontSize * dpr * scaleFactor}px sm00ch`;
     const textMetrics = context.measureText(userText);
@@ -28,10 +28,12 @@ const DownloadButton = ({ userText, fontSize, fontColor, showPlusButton }) => {
     canvas.width = textWidth + padding * 2;
     canvas.height = textHeight + padding * 2;
 
+    // Ensure text fits by aligning it properly
     context.clearRect(0, 0, canvas.width, canvas.height);
     context.font = `${fontSize * dpr * scaleFactor}px sm00ch`;
     context.fillStyle = fontColor;
-    context.fillText(userText, padding, textHeight + padding / 2);
+    context.textBaseline = 'middle'; // Align text vertically
+    context.fillText(userText, padding, canvas.height / 2);
 
     const link = document.createElement('a');
     link.href = canvas.toDataURL('image/png');
