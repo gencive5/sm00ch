@@ -332,7 +332,7 @@ body {
   }
 
   .custom-slider-container {
-    width: 150px; /* Reduce width for mobile */
+    width: 120px; /* Reduce width for mobile */
   }
 }
 

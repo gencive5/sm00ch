@@ -128,7 +128,7 @@ function App() {
         ) : (
           <>
             <button className="bttn btn-use" onClick={toggleModal}>
-              {isModalOpen ? '✖' : 'USE CONDITIONS'}
+              {isModalOpen ? 'X' : 'USE CONDITIONS'}
             </button>
             <a
               href="https://www.paypal.me/VicSegen?locale.x=fr_FR"
