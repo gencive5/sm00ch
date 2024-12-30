@@ -72,6 +72,7 @@ function App() {
         placeholder="Start typing..."
         value={userText}
         onChange={(e) => setUserText(e.target.value)}
+        spellCheck={false}
       />
 
       {/* Second Input Field */}
@@ -81,6 +82,7 @@ function App() {
         value={userText}
         onChange={(e) => setUserText(e.target.value)}
         style={{ fontSize: `${fontSize}px`, color: fontColor }}
+        spellCheck={false}
       />
 
       {/* Buttons for Desktop and Mobile */}
