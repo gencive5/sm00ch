@@ -48,8 +48,10 @@ function App() {
       const openBrowserButton = document.getElementById('openBrowserButton');
       openBrowserButton.addEventListener('click', () => {
         const url = window.location.href;
-        const properUrl = url.startsWith('https://') ? url : `https://${url.replace(/^https?:\/\//, '')}`;
-  
+        const properUrl = url.startsWith('https://') 
+          ? url 
+          : `https://${url.replace(/^https?:\/\//, '')}`;
+
         // Redirect to Chrome or the default browser
         window.location.href = `googlechrome://${properUrl}`;
         setTimeout(() => {
