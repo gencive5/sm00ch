@@ -17,6 +17,39 @@ function App() {
 
   const firstInputRef = useRef(null);
 
+  // Detect in-app browser and suggest opening in a native browser
+  useEffect(() => {
+    const isInAppBrowser = /Instagram|FB_IAB|FBAN/.test(navigator.userAgent);
+    if (isInAppBrowser) {
+      const prompt = document.createElement('div');
+      prompt.style.position = 'fixed';
+      prompt.style.top = '0';
+      prompt.style.left = '0';
+      prompt.style.width = '100%';
+      prompt.style.height = '100%';
+      prompt.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+      prompt.style.color = 'white';
+      prompt.style.zIndex = '1000';
+      prompt.style.display = 'flex';
+      prompt.style.flexDirection = 'column';
+      prompt.style.alignItems = 'center';
+      prompt.style.justifyContent = 'center';
+      prompt.innerHTML = `
+        <p style="margin: 20px; font-size: 20px; text-align: center;">
+          For a better experience, please open this page in your device's default browser.
+        </p>
+        <button style="padding: 10px 20px; font-size: 18px; background-color: #007bff; color: white; border: none; cursor: pointer;">
+          Open in Browser
+        </button>
+      `;
+
+      document.body.appendChild(prompt);
+      prompt.querySelector('button').addEventListener('click', () => {
+        window.location = 'https://' + window.location.hostname;
+      });
+    }
+  }, []);
+
   useEffect(() => {
     if (firstInputRef.current) {
       firstInputRef.current.focus();
