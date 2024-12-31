@@ -17,10 +17,9 @@ function App() {
 
   const firstInputRef = useRef(null);
 
-  // Detect in-app browser and suggest opening in a native browser
   useEffect(() => {
     const isInAppBrowser = /Instagram|FB_IAB|FBAN/.test(navigator.userAgent);
-
+  
     if (isInAppBrowser) {
       const prompt = document.createElement('div');
       prompt.style.position = 'fixed';
@@ -43,19 +42,23 @@ function App() {
           Open in Browser
         </button>
       `;
-
+  
       document.body.appendChild(prompt);
-
+  
       const openBrowserButton = document.getElementById('openBrowserButton');
       openBrowserButton.addEventListener('click', () => {
         const url = window.location.href;
-        window.location.href = `googlechrome://${url}`;
+        const properUrl = url.startsWith('https://') ? url : `https://${url.replace(/^https?:\/\//, '')}`;
+  
+        // Redirect to Chrome or the default browser
+        window.location.href = `googlechrome://${properUrl}`;
         setTimeout(() => {
-          window.location.href = `https://${window.location.hostname}`;
-        }, 1000); // Fallback redirection
+          window.location.href = properUrl; // Fallback redirection
+        }, 1000);
       });
     }
   }, []);
+  
 
   useEffect(() => {
     if (firstInputRef.current) {
