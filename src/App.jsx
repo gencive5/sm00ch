@@ -46,13 +46,22 @@ function App() {
       const openBrowserButton = document.getElementById('openBrowserButton');
       openBrowserButton.addEventListener('click', () => {
         const currentUrl = window.location.href;
-        const properUrl = currentUrl.startsWith('https://')
-          ? currentUrl
-          : `https://${currentUrl.replace(/^(https?:)?\/\//, '')}`;
-        console.log('Redirecting to Proper URL:', properUrl);
+
+        // Ensure URL has "https://" properly formatted
+        let properUrl;
+        if (currentUrl.startsWith('https://')) {
+          properUrl = currentUrl; // Correct as is
+        } else {
+          const cleanedUrl = currentUrl.replace(/^(https?:)?\/\//, ''); // Strip incorrect prefixes
+          properUrl = `https://${cleanedUrl}`; // Add correct "https://"
+        }
+
+        console.log("Redirecting to Proper URL:", properUrl);
+
+        // Redirect to Chrome or fallback to the default browser
         window.location.href = `googlechrome://${properUrl}`;
         setTimeout(() => {
-          window.location.href = properUrl;
+          window.location.href = properUrl; // Fallback redirection
         }, 1000);
       });
     }
