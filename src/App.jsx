@@ -11,15 +11,14 @@ function App() {
   const [fontSize, setFontSize] = useState(150);
   const [mobileFontSize] = useState(50);
   const [fontColor, setFontColor] = useState('#000000');
-  const [isModalOpen, setIsModalOpen] = useState(false); // "Use Conditions" modal
-  const [isPlusMenuOpen, setIsPlusMenuOpen] = useState(false); // Plus menu modal
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isPlusMenuOpen, setIsPlusMenuOpen] = useState(false);
   const [showPlusButton, setShowPlusButton] = useState(false);
 
   const firstInputRef = useRef(null);
 
   useEffect(() => {
     const isInAppBrowser = /Instagram|FB_IAB|FBAN/.test(navigator.userAgent);
-  
     if (isInAppBrowser) {
       const prompt = document.createElement('div');
       prompt.style.position = 'fixed';
@@ -42,17 +41,15 @@ function App() {
           Open in Browser
         </button>
       `;
-  
       document.body.appendChild(prompt);
-  
+
       const openBrowserButton = document.getElementById('openBrowserButton');
       openBrowserButton.addEventListener('click', () => {
-        const url = window.location.href;
-        const properUrl = url.startsWith('https://') 
-          ? url 
-          : `https://${url.replace(/^https?:\/\//, '')}`;
-
-        // Redirect to Chrome or the default browser
+        const currentUrl = window.location.href;
+        const properUrl = currentUrl.startsWith('https://')
+          ? currentUrl
+          : `https://${currentUrl.replace(/^https?:\/\//, '')}`;
+        console.log('Redirecting to Proper URL:', properUrl);
         window.location.href = `googlechrome://${properUrl}`;
         setTimeout(() => {
           window.location.href = properUrl; // Fallback redirection
@@ -71,8 +68,6 @@ function App() {
     const handleResize = () => {
       const isMobile = window.innerWidth <= 768;
       setShowPlusButton(isMobile);
-
-      // Reset plus menu state and font size for desktop view
       if (!isMobile) {
         setIsPlusMenuOpen(false);
         setFontSize(150);
@@ -88,28 +83,23 @@ function App() {
 
   const toggleModal = () => {
     setIsModalOpen((prev) => !prev);
-    setIsPlusMenuOpen(false); // Close the plus menu when opening/closing "Use Conditions"
+    setIsPlusMenuOpen(false);
   };
 
   const togglePlusMenu = () => {
     setIsPlusMenuOpen((prev) => !prev);
-    setIsModalOpen(false); // Close the "Use Conditions" modal when toggling plus menu
+    setIsModalOpen(false);
   };
 
-  // Check if any modal is open
   const isAnyModalOpen = isModalOpen || isPlusMenuOpen;
 
   return (
     <div className="container mt-5">
       <h1 className="title">sm00ch</h1>
-
-      {/* Font Size Slider and Color Buttons */}
       <div className="button-row mb-3">
         <FontSizeSlider fontSize={fontSize} setFontSize={setFontSize} />
         <ColorButtons setFontColor={setFontColor} />
       </div>
-
-      {/* First Input Field */}
       <textarea
         ref={firstInputRef}
         className="text-input"
@@ -118,8 +108,6 @@ function App() {
         onChange={(e) => setUserText(e.target.value)}
         spellCheck={false}
       />
-
-      {/* Second Input Field */}
       <textarea
         className="text-input2"
         placeholder="Start typing..."
@@ -128,8 +116,6 @@ function App() {
         style={{ fontSize: `${fontSize}px`, color: fontColor }}
         spellCheck={false}
       />
-
-      {/* Buttons for Desktop and Mobile */}
       <div className="button-row row2 mb-3 text-center mt-4">
         {!isPlusMenuOpen && (
           <DownloadButton
@@ -139,13 +125,11 @@ function App() {
             showPlusButton={showPlusButton}
           />
         )}
-
         {showPlusButton ? (
           <>
             <button className="bttn btn-plus" onClick={togglePlusMenu}>
               {isAnyModalOpen ? 'X' : '+'}
             </button>
-
             {isPlusMenuOpen && (
               <div className="plus-menu-modal">
                 <a href="/sm00ch.zip" download="sm00ch.zip" className="bttn btn-download">
@@ -193,8 +177,6 @@ function App() {
           </>
         )}
       </div>
-
-      {/* Modal for Use Conditions */}
       {isModalOpen && (
         <div className="modal-overlay" onClick={toggleModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
@@ -208,7 +190,6 @@ function App() {
           </div>
         </div>
       )}
-
       <AnimatedFavicon />
     </div>
   );
