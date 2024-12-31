@@ -20,6 +20,7 @@ function App() {
   // Detect in-app browser and suggest opening in a native browser
   useEffect(() => {
     const isInAppBrowser = /Instagram|FB_IAB|FBAN/.test(navigator.userAgent);
+
     if (isInAppBrowser) {
       const prompt = document.createElement('div');
       prompt.style.position = 'fixed';
@@ -38,14 +39,20 @@ function App() {
         <p style="margin: 20px; font-size: 20px; text-align: center;">
           For a better experience, please open this page in your device's default browser.
         </p>
-        <button style="padding: 10px 20px; font-size: 18px; background-color: #007bff; color: white; border: none; cursor: pointer;">
+        <button id="openBrowserButton" style="padding: 10px 20px; font-size: 18px; background-color: #007bff; color: white; border: none; cursor: pointer;">
           Open in Browser
         </button>
       `;
 
       document.body.appendChild(prompt);
-      prompt.querySelector('button').addEventListener('click', () => {
-        window.location = 'https://' + window.location.hostname;
+
+      const openBrowserButton = document.getElementById('openBrowserButton');
+      openBrowserButton.addEventListener('click', () => {
+        const url = window.location.href;
+        window.location.href = `googlechrome://${url}`;
+        setTimeout(() => {
+          window.location.href = `https://${window.location.hostname}`;
+        }, 1000); // Fallback redirection
       });
     }
   }, []);
