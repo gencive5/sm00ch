@@ -28,26 +28,22 @@ const DownloadButton = ({ userText, fontSize, fontColor, showPlusButton }) => {
     canvas.width = textWidth + padding * 2;
     canvas.height = textHeight + padding * 2;
 
-    // Clear and draw the text
+    // Draw the text
     context.clearRect(0, 0, canvas.width, canvas.height);
     context.font = `${fontSize * dpr * scaleFactor}px sm00ch`;
     context.fillStyle = fontColor;
     context.textBaseline = 'middle'; // Vertical alignment
     context.fillText(userText, padding, canvas.height / 2);
 
-    // Convert to blob and trigger download
-    canvas.toBlob((blob) => {
-      if (!blob) {
-        console.error('Blob generation failed');
-        return;
-      }
-      const link = document.createElement('a');
-      link.href = URL.createObjectURL(blob);
-      link.download = 'sm00ch.png';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    }, 'image/png');
+    // Directly trigger download without redirecting
+    const pngUrl = canvas.toDataURL('image/png');
+    const link = document.createElement('a');
+    link.href = pngUrl;
+    link.download = 'sm00ch.png';
+    link.style.display = 'none';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return showPlusButton ? (
