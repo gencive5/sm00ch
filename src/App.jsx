@@ -48,11 +48,11 @@ function App() {
         const currentUrl = window.location.href;
         const properUrl = currentUrl.startsWith('https://')
           ? currentUrl
-          : `https://${currentUrl.replace(/^https?:\/\//, '')}`;
+          : `https://${currentUrl.replace(/^(https?:)?\/\//, '')}`;
         console.log('Redirecting to Proper URL:', properUrl);
         window.location.href = `googlechrome://${properUrl}`;
         setTimeout(() => {
-          window.location.href = properUrl; // Fallback redirection
+          window.location.href = properUrl;
         }, 1000);
       });
     }
