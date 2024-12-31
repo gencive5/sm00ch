@@ -58,7 +58,6 @@ function App() {
       });
     }
   }, []);
-  
 
   useEffect(() => {
     if (firstInputRef.current) {
