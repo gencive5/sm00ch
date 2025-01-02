@@ -1,7 +1,6 @@
-
 import React from 'react';
 
-const DownloadButton = ({ userText, fontSize, fontColor, showPlusButton }) => {
+const DownloadButtonIOS = ({ userText, fontSize, fontColor, showPlusButton }) => {
   const loadFontAndDownload = async () => {
     if (!userText) return;
 
@@ -18,8 +17,8 @@ const DownloadButton = ({ userText, fontSize, fontColor, showPlusButton }) => {
     const context = canvas.getContext('2d');
     const dpr = window.devicePixelRatio || 1;
 
-    const padding = 80 * dpr; // Padding around the text
-    const scaleFactor = 2; // Scale for better resolution
+    const padding = 80 * dpr;
+    const scaleFactor = 2;
 
     context.font = `${fontSize * dpr * scaleFactor}px sm00ch`;
     const textMetrics = context.measureText(userText);
@@ -29,14 +28,12 @@ const DownloadButton = ({ userText, fontSize, fontColor, showPlusButton }) => {
     canvas.width = textWidth + padding * 2;
     canvas.height = textHeight + padding * 2;
 
-    // Draw the text
     context.clearRect(0, 0, canvas.width, canvas.height);
     context.font = `${fontSize * dpr * scaleFactor}px sm00ch`;
     context.fillStyle = fontColor;
-    context.textBaseline = 'middle'; // Vertical alignment
+    context.textBaseline = 'middle';
     context.fillText(userText, padding, canvas.height / 2);
 
-    // Directly trigger download without redirecting
     const pngUrl = canvas.toDataURL('image/png');
     const link = document.createElement('a');
     link.href = pngUrl;
@@ -58,4 +55,4 @@ const DownloadButton = ({ userText, fontSize, fontColor, showPlusButton }) => {
   );
 };
 
-export default DownloadButton;
+export default DownloadButtonIOS;
