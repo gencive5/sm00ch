@@ -14,13 +14,18 @@ function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isPlusMenuOpen, setIsPlusMenuOpen] = useState(false);
   const [showPlusButton, setShowPlusButton] = useState(false);
-  const [isInAppBrowser, setIsInAppBrowser] = useState(false);
+  const [showRedirectModal, setShowRedirectModal] = useState(false);
 
   const firstInputRef = useRef(null);
 
   useEffect(() => {
-    const isInApp = navigator.userAgent.includes('Instagram');
-    setIsInAppBrowser(isInApp);
+    // Detect if the user is on Android and in the Instagram in-app browser
+    const isAndroid = /Android/i.test(navigator.userAgent);
+    const isInstagram = /Instagram/i.test(navigator.userAgent);
+
+    if (isAndroid && isInstagram) {
+      setShowRedirectModal(true);
+    }
   }, []);
 
   useEffect(() => {
@@ -60,7 +65,7 @@ function App() {
 
   return (
     <div className="container mt-5">
-      {isInAppBrowser && (
+      {showRedirectModal && (
         <div
           style={{
             position: 'fixed',
@@ -100,7 +105,7 @@ function App() {
           </a>
         </div>
       )}
-      {!isInAppBrowser && (
+      {!showRedirectModal && (
         <>
           <h1 className="title">sm00ch</h1>
           <div className="button-row mb-3">
