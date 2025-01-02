@@ -1,18 +1,21 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const DownloadButton = ({ userText, fontSize, fontColor, showPlusButton }) => {
+const DownloadButtonIOS = ({ userText, fontSize, fontColor, showPlusButton }) => {
+  const navigate = useNavigate();
+
   const loadFontAndDownload = async () => {
     if (!userText) return;
 
     try {
       await document.fonts.load(`${fontSize}px sm00ch`);
-      downloadPNG();
+      generatePNG();
     } catch (error) {
       console.error('Font loading failed:', error);
     }
   };
 
-  const downloadPNG = () => {
+  const generatePNG = () => {
     const canvas = document.createElement('canvas');
     const context = canvas.getContext('2d');
     const dpr = window.devicePixelRatio || 1;
@@ -35,18 +38,14 @@ const DownloadButton = ({ userText, fontSize, fontColor, showPlusButton }) => {
     context.textBaseline = 'middle'; // Vertical alignment
     context.fillText(userText, padding, canvas.height / 2);
 
-    // Convert to blob and trigger download
+    // Convert to blob and navigate to BlobPage
     canvas.toBlob((blob) => {
       if (!blob) {
         console.error('Blob generation failed');
         return;
       }
-      const link = document.createElement('a');
-      link.href = URL.createObjectURL(blob);
-      link.download = 'sm00ch.png';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+      const blobUrl = URL.createObjectURL(blob);
+      navigate('/blob-page', { state: { blobUrl } });
     }, 'image/png');
   };
 
@@ -61,4 +60,4 @@ const DownloadButton = ({ userText, fontSize, fontColor, showPlusButton }) => {
   );
 };
 
-export default DownloadButton;
+export default DownloadButtonIOS;
