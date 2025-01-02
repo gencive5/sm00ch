@@ -1,6 +1,6 @@
 import React from 'react';
 
-const DownloadButtonIOS = ({ userText, fontSize, fontColor, showPlusButton }) => {
+const DownloadButton = ({ userText, fontSize, fontColor, showPlusButton }) => {
   const loadFontAndDownload = async () => {
     if (!userText) return;
 
@@ -17,8 +17,8 @@ const DownloadButtonIOS = ({ userText, fontSize, fontColor, showPlusButton }) =>
     const context = canvas.getContext('2d');
     const dpr = window.devicePixelRatio || 1;
 
-    const padding = 80 * dpr;
-    const scaleFactor = 2;
+    const padding = 80 * dpr; // Padding around the text
+    const scaleFactor = 2; // Scale for better resolution
 
     context.font = `${fontSize * dpr * scaleFactor}px sm00ch`;
     const textMetrics = context.measureText(userText);
@@ -28,20 +28,26 @@ const DownloadButtonIOS = ({ userText, fontSize, fontColor, showPlusButton }) =>
     canvas.width = textWidth + padding * 2;
     canvas.height = textHeight + padding * 2;
 
+    // Clear and draw the text
     context.clearRect(0, 0, canvas.width, canvas.height);
     context.font = `${fontSize * dpr * scaleFactor}px sm00ch`;
     context.fillStyle = fontColor;
-    context.textBaseline = 'middle';
+    context.textBaseline = 'middle'; // Vertical alignment
     context.fillText(userText, padding, canvas.height / 2);
 
-    const pngUrl = canvas.toDataURL('image/png');
-    const link = document.createElement('a');
-    link.href = pngUrl;
-    link.download = 'sm00ch.png';
-    link.style.display = 'none';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    // Convert to blob and trigger download
+    canvas.toBlob((blob) => {
+      if (!blob) {
+        console.error('Blob generation failed');
+        return;
+      }
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = 'sm00ch.png';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }, 'image/png');
   };
 
   return showPlusButton ? (
@@ -55,4 +61,4 @@ const DownloadButtonIOS = ({ userText, fontSize, fontColor, showPlusButton }) =>
   );
 };
 
-export default DownloadButtonIOS;
+export default DownloadButton;
