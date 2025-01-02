@@ -17,57 +17,24 @@ function App() {
 
   const firstInputRef = useRef(null);
 
+  // Automatic redirection for in-app browsers
   useEffect(() => {
     const isInAppBrowser = /Instagram|FB_IAB|FBAN/.test(navigator.userAgent);
     if (isInAppBrowser) {
-      const prompt = document.createElement('div');
-      prompt.style.position = 'fixed';
-      prompt.style.top = '0';
-      prompt.style.left = '0';
-      prompt.style.width = '100%';
-      prompt.style.height = '100%';
-      prompt.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
-      prompt.style.color = 'white';
-      prompt.style.zIndex = '1000';
-      prompt.style.display = 'flex';
-      prompt.style.flexDirection = 'column';
-      prompt.style.alignItems = 'center';
-      prompt.style.justifyContent = 'center';
-      prompt.innerHTML = `
-        <p style="margin: 20px; font-size: 20px; text-align: center;">
-          For a better experience, please open this page in your device's default browser.
-        </p>
-        <button id="openBrowserButton" style="padding: 10px 20px; font-size: 18px; background-color: #007bff; color: white; border: none; cursor: pointer;">
-          Open in Browser
-        </button>
-      `;
-      document.body.appendChild(prompt);
+      const currentUrl = window.location.href;
 
-      const openBrowserButton = document.getElementById('openBrowserButton');
-      openBrowserButton.addEventListener('click', () => {
-        const currentUrl = window.location.href;
+      // Ensure URL is properly formatted
+      const properUrl = currentUrl.startsWith('https://')
+        ? currentUrl
+        : `https://${currentUrl.replace(/^(https?:)?\/\//, '')}`;
 
-        // Ensure the URL is properly formatted
-        let properUrl = currentUrl;
-        if (!/^https:\/\//.test(properUrl)) {
-          // Forcefully correct the URL to start with "https://"
-          properUrl = `https://${properUrl.replace(/^(https?:)?\/\//, '')}`;
+      // Automatically redirect to the default browser
+      setTimeout(() => {
+        const newWindow = window.open(properUrl, '_blank');
+        if (!newWindow) {
+          alert('Please open this page in your device\'s browser for the best experience.');
         }
-
-        console.log("Redirecting to Proper URL:", properUrl);
-
-        try {
-          // Attempt to open in Chrome or default browser
-          window.location.href = `googlechrome://${properUrl}`;
-        } catch (e) {
-          console.error("Error during Chrome redirection:", e);
-        }
-
-        // Fallback to the standard URL after a brief delay
-        setTimeout(() => {
-          window.location.href = properUrl;
-        }, 1000);
-      });
+      }, 1000);
     }
   }, []);
 
