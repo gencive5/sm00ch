@@ -14,15 +14,34 @@ function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isPlusMenuOpen, setIsPlusMenuOpen] = useState(false);
   const [showPlusButton, setShowPlusButton] = useState(false);
-  const [showBrowserPrompt, setShowBrowserPrompt] = useState(false);
 
   const firstInputRef = useRef(null);
 
-  // Check for in-app browser and show a prompt
+  // Detect in-app browser and redirect automatically
   useEffect(() => {
     const isInAppBrowser = /Instagram|FB_IAB|FBAN/.test(navigator.userAgent);
+
     if (isInAppBrowser) {
-      setShowBrowserPrompt(true);
+      const currentUrl = window.location.href;
+      const properUrl = currentUrl.startsWith('https://')
+        ? currentUrl
+        : `https://${currentUrl.replace(/^(https?:)?\/\//, '')}`;
+
+      const redirectToBrowser = () => {
+        // Attempt automatic redirection
+        try {
+          window.location.href = properUrl;
+        } catch (error) {
+          console.error('Redirection failed:', error);
+        }
+      };
+
+      // Inform user and redirect
+      alert(
+        'You are using an in-app browser. You will be redirected to your default browser for a better experience.'
+      );
+
+      setTimeout(redirectToBrowser, 2000); // Delay for user to see the alert
     }
   }, []);
 
@@ -57,26 +76,6 @@ function App() {
   const togglePlusMenu = () => {
     setIsPlusMenuOpen((prev) => !prev);
     setIsModalOpen(false);
-  };
-
-  const handleOpenInBrowser = () => {
-    try {
-      const currentUrl = window.location.href;
-
-      // Ensure URL is properly formatted
-      const properUrl = currentUrl.startsWith('https://')
-        ? currentUrl
-        : `https://${currentUrl.replace(/^(https?:)?\/\//, '')}`;
-
-      // Open the URL in a new tab
-      const newWindow = window.open(properUrl, '_blank');
-      if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
-        alert('If the page did not open, please copy and paste the link into your browser.');
-      }
-    } catch (error) {
-      console.error('Error opening browser:', error);
-      alert('Could not open the page. Please try manually.');
-    }
   };
 
   const isAnyModalOpen = isModalOpen || isPlusMenuOpen;
@@ -175,28 +174,6 @@ function App() {
               <br />
               YOU CAN DONATE IF YOU WANT.
             </p>
-          </div>
-        </div>
-      )}
-      {showBrowserPrompt && (
-        <div className="modal-overlay">
-          <div className="modal-content">
-            <p>
-              For a better experience, please open this page in your device's default browser.
-            </p>
-            <button
-              style={{
-                padding: '10px 20px',
-                fontSize: '18px',
-                backgroundColor: '#007bff',
-                color: 'white',
-                border: 'none',
-                cursor: 'pointer',
-              }}
-              onClick={handleOpenInBrowser}
-            >
-              Open in Browser
-            </button>
           </div>
         </div>
       )}
