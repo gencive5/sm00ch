@@ -14,27 +14,15 @@ function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isPlusMenuOpen, setIsPlusMenuOpen] = useState(false);
   const [showPlusButton, setShowPlusButton] = useState(false);
+  const [showBrowserPrompt, setShowBrowserPrompt] = useState(false);
 
   const firstInputRef = useRef(null);
 
-  // Automatic redirection for in-app browsers
+  // Check for in-app browser and show a prompt
   useEffect(() => {
     const isInAppBrowser = /Instagram|FB_IAB|FBAN/.test(navigator.userAgent);
     if (isInAppBrowser) {
-      const currentUrl = window.location.href;
-
-      // Ensure URL is properly formatted
-      const properUrl = currentUrl.startsWith('https://')
-        ? currentUrl
-        : `https://${currentUrl.replace(/^(https?:)?\/\//, '')}`;
-
-      // Automatically redirect to the default browser
-      setTimeout(() => {
-        const newWindow = window.open(properUrl, '_blank');
-        if (!newWindow) {
-          alert('Please open this page in your device\'s browser for the best experience.');
-        }
-      }, 1000);
+      setShowBrowserPrompt(true);
     }
   }, []);
 
@@ -69,6 +57,21 @@ function App() {
   const togglePlusMenu = () => {
     setIsPlusMenuOpen((prev) => !prev);
     setIsModalOpen(false);
+  };
+
+  const handleOpenInBrowser = () => {
+    const currentUrl = window.location.href;
+
+    // Ensure URL is properly formatted
+    const properUrl = currentUrl.startsWith('https://')
+      ? currentUrl
+      : `https://${currentUrl.replace(/^(https?:)?\/\//, '')}`;
+
+    // Open URL in default browser
+    const newWindow = window.open(properUrl, '_blank');
+    if (!newWindow) {
+      alert('Please manually open this page in your default browser.');
+    }
   };
 
   const isAnyModalOpen = isModalOpen || isPlusMenuOpen;
@@ -167,6 +170,28 @@ function App() {
               <br />
               YOU CAN DONATE IF YOU WANT.
             </p>
+          </div>
+        </div>
+      )}
+      {showBrowserPrompt && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <p>
+              For a better experience, please open this page in your device's default browser.
+            </p>
+            <button
+              style={{
+                padding: '10px 20px',
+                fontSize: '18px',
+                backgroundColor: '#007bff',
+                color: 'white',
+                border: 'none',
+                cursor: 'pointer',
+              }}
+              onClick={handleOpenInBrowser}
+            >
+              Open in Browser
+            </button>
           </div>
         </div>
       )}
