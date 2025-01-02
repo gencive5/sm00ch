@@ -47,22 +47,25 @@ function App() {
       openBrowserButton.addEventListener('click', () => {
         const currentUrl = window.location.href;
 
-        // Ensure URL is properly formatted with "https://"
-        const properUrl = currentUrl.startsWith('https://') 
-          ? currentUrl 
-          : `https://${currentUrl.replace(/^(https?:)?\/\//, '')}`;
+        // Ensure the URL is properly formatted
+        let properUrl = currentUrl;
+        if (!/^https:\/\//.test(properUrl)) {
+          // Forcefully correct the URL to start with "https://"
+          properUrl = `https://${properUrl.replace(/^(https?:)?\/\//, '')}`;
+        }
 
         console.log("Redirecting to Proper URL:", properUrl);
 
-        // Redirect to Chrome or fallback to the default browser
         try {
+          // Attempt to open in Chrome or default browser
           window.location.href = `googlechrome://${properUrl}`;
         } catch (e) {
-          console.error("Failed to redirect to Chrome:", e);
+          console.error("Error during Chrome redirection:", e);
         }
 
+        // Fallback to the standard URL after a brief delay
         setTimeout(() => {
-          window.location.href = properUrl; // Fallback redirection
+          window.location.href = properUrl;
         }, 1000);
       });
     }
