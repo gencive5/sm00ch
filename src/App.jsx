@@ -47,19 +47,20 @@ function App() {
       openBrowserButton.addEventListener('click', () => {
         const currentUrl = window.location.href;
 
-        // Ensure URL has "https://" properly formatted
-        let properUrl;
-        if (currentUrl.startsWith('https://')) {
-          properUrl = currentUrl; // Correct as is
-        } else {
-          const cleanedUrl = currentUrl.replace(/^(https?:)?\/\//, ''); // Strip incorrect prefixes
-          properUrl = `https://${cleanedUrl}`; // Add correct "https://"
-        }
+        // Ensure URL is properly formatted with "https://"
+        const properUrl = currentUrl.startsWith('https://') 
+          ? currentUrl 
+          : `https://${currentUrl.replace(/^(https?:)?\/\//, '')}`;
 
         console.log("Redirecting to Proper URL:", properUrl);
 
         // Redirect to Chrome or fallback to the default browser
-        window.location.href = `googlechrome://${properUrl}`;
+        try {
+          window.location.href = `googlechrome://${properUrl}`;
+        } catch (e) {
+          console.error("Failed to redirect to Chrome:", e);
+        }
+
         setTimeout(() => {
           window.location.href = properUrl; // Fallback redirection
         }, 1000);
