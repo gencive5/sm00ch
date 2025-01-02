@@ -60,17 +60,22 @@ function App() {
   };
 
   const handleOpenInBrowser = () => {
-    const currentUrl = window.location.href;
+    try {
+      const currentUrl = window.location.href;
 
-    // Ensure URL is properly formatted
-    const properUrl = currentUrl.startsWith('https://')
-      ? currentUrl
-      : `https://${currentUrl.replace(/^(https?:)?\/\//, '')}`;
+      // Ensure URL is properly formatted
+      const properUrl = currentUrl.startsWith('https://')
+        ? currentUrl
+        : `https://${currentUrl.replace(/^(https?:)?\/\//, '')}`;
 
-    // Open URL in default browser
-    const newWindow = window.open(properUrl, '_blank');
-    if (!newWindow) {
-      alert('Please manually open this page in your default browser.');
+      // Open the URL in a new tab
+      const newWindow = window.open(properUrl, '_blank');
+      if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
+        alert('If the page did not open, please copy and paste the link into your browser.');
+      }
+    } catch (error) {
+      console.error('Error opening browser:', error);
+      alert('Could not open the page. Please try manually.');
     }
   };
 
