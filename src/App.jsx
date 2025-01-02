@@ -17,31 +17,12 @@ function App() {
 
   const firstInputRef = useRef(null);
 
-  // Detect in-app browser and redirect automatically
+  // Detect in-app browser and redirect to the intermediate page
   useEffect(() => {
     const isInAppBrowser = /Instagram|FB_IAB|FBAN/.test(navigator.userAgent);
 
     if (isInAppBrowser) {
-      const currentUrl = window.location.href;
-      const properUrl = currentUrl.startsWith('https://')
-        ? currentUrl
-        : `https://${currentUrl.replace(/^(https?:)?\/\//, '')}`;
-
-      const redirectToBrowser = () => {
-        // Attempt automatic redirection
-        try {
-          window.location.href = properUrl;
-        } catch (error) {
-          console.error('Redirection failed:', error);
-        }
-      };
-
-      // Inform user and redirect
-      alert(
-        'You are using an in-app browser. You will be redirected to your default browser for a better experience.'
-      );
-
-      setTimeout(redirectToBrowser, 2000); // Delay for user to see the alert
+      window.location.href = '/redirect.html';
     }
   }, []);
 
