@@ -7,6 +7,7 @@ import DownloadButtonIOS from './DownloadButtonIOS'; // New DownloadButton for i
 import ColorButtons from './ColorButtons';
 import FontSizeSlider from './FontSizeSlider';
 import BlobPageIOS from './BlobPageIOS'; // Page to display and download the blob
+import AndroidWarning from './AndroidWarning'; // Import AndroidWarning component
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -77,46 +78,7 @@ function App() {
           path="/"
           element={
             <div className="container mt-5">
-              {isAndroidInAppBrowser && (
-                <div
-                  style={{
-                    position: 'fixed',
-                    top: '0',
-                    left: '0',
-                    width: '100%',
-                    height: '100%',
-                    backgroundColor: 'rgba(0, 0, 0, 0.8)',
-                    color: 'white',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    zIndex: '1000',
-                  }}
-                >
-                  <p style={{ margin: '20px', fontSize: '18px', textAlign: 'center' }}>
-                    You are currently viewing this app in an Instagram in-app browser on Android.
-                    <br />
-                    For the best experience, please open it in your default browser.
-                  </p>
-                  <a
-                    href={window.location.href}
-                    target="_blank"
-                    download
-                    style={{
-                      padding: '10px 20px',
-                      fontSize: '16px',
-                      backgroundColor: '#007bff',
-                      color: 'white',
-                      textDecoration: 'none',
-                      borderRadius: '5px',
-                      marginTop: '10px',
-                    }}
-                  >
-                    Open in Browser
-                  </a>
-                </div>
-              )}
+              {isAndroidInAppBrowser && <AndroidWarning />}
               <h1 className="title">sm00ch</h1>
               <div className="button-row mb-3">
                 <FontSizeSlider fontSize={fontSize} setFontSize={setFontSize} />
