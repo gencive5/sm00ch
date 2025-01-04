@@ -35,6 +35,7 @@ body {
   text-transform: uppercase;
   resize: none;
   overflow: hidden;
+  background-color: #ffffff;
 }
 
 .text-input2 {
@@ -50,6 +51,7 @@ body {
   text-transform: uppercase;
   resize: none;
   overflow: hidden;
+  background-color: #ffffff;
 }
 
 /* Add blinking caret effect */
@@ -128,6 +130,7 @@ body {
   justify-content: space-between; 
   padding-left: 1.8rem;
   padding-right: 1.8rem;
+  background-color: #ffffff;
 }
 
 .button-row .btn {
@@ -180,6 +183,7 @@ body {
     align-items: center; /* Ensures everything (symbols, slider, etc.) aligns vertically */
     gap: 10px; /* Space between the slider and symbols/buttons */
     height: 2rem; /* Same height as the buttons for consistency */
+    background-color: #ffffff;
   }
   
   .slider-symbol {
@@ -266,8 +270,8 @@ body {
 }
 
 .modal-content {
-  background: #ffffff; /* Fully opaque white background */
-  color: #000000; /* Black text */
+  background: #ffffff; 
+  color: #000000; 
   padding: 3rem;
   border-radius: 8px;
   text-align: center;
@@ -275,7 +279,6 @@ body {
   font-size: 2rem;
   line-height: 1.5;
   position: relative;
- 
 }
 
 .plus-menu-modal {
@@ -317,6 +320,7 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 10px; /* More gap for better separation */
+    background-color: #ffffff;
   }
 
   .btn-plus {
