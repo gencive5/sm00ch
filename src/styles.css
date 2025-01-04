@@ -262,6 +262,7 @@ body {
   color: #000000;
   background: #ffffff; 
   border-radius: 8px;
+  border: 1px solid #000000; 
 }
 
 .modal-content {
@@ -274,8 +275,7 @@ body {
   font-size: 2rem;
   line-height: 1.5;
   position: relative;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow for depth */
-  border: 1px solid #000000; /* Optional: A thin black border for emphasis */
+ 
 }
 
 .plus-menu-modal {

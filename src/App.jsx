@@ -176,7 +176,9 @@ function App() {
                 <div className="modal-overlay" onClick={toggleModal}>
                   <div className="modal-content" onClick={(e) => e.stopPropagation()}>
                     <p>
-                      THIS FONT IS AVAILABLE FOR PERSONAL USE ONLY, CREDIT GENCIVE5 ON INSTAGRAM.
+                      THIS FONT IS AVAILABLE FOR PERSONAL USE ONLY.
+                      <br />
+                      CREDIT GENCIVE5 ON INSTAGRAM.
                       <br />
                       FOR ANY COMMERCIAL USE PLEASE CONTACT ME AT @GENCIVE5 OR VIC.SEGEN@GMAIL.COM
                       <br />
