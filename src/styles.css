@@ -174,47 +174,80 @@ body {
     padding: 5px;
   }
 
-/* Container for custom slider */
-.custom-slider-container {
-  width: 200px;
-  position: relative;
-}
 
-/* Custom range slider track */
-.custom-slider {
-  -webkit-appearance: none;
-  width: 100%;
-  height: 0.1rem;
-  background: #000000; /* Black track */
-  border-radius: 5px;
-  outline: none;
-  cursor: pointer;
-}
+  .custom-slider-container {
+    display: flex;
+    align-items: center; /* Ensures everything (symbols, slider, etc.) aligns vertically */
+    gap: 10px; /* Space between the slider and symbols/buttons */
+    height: 2rem; /* Same height as the buttons for consistency */
+  }
+  
+  .slider-symbol {
+    font-size: 1.5rem; /* Size of the symbols */
+    font-weight: bold; /* Bold styling for symbols */
+    color: #000;
+    user-select: none; /* Prevent text selection */
+    line-height: 1; /* Prevents extra vertical spacing */
+    display: flex;
+    align-items: center; /* Vertically centers the symbols */
+    justify-content: center;
+    position: relative;
+    top: -1.5px; /* Fine-tune vertical positioning */
+  }
 
-/* Custom thumb for WebKit browsers (Chrome, Safari) */
-.custom-slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 2rem;
-  height: 2rem;
-  background: #000000; /* Black circular thumb */
-  border-radius: 50%;
-  cursor: pointer;
-}
+  .slider-wrapper {
+    position: relative;
+    flex-grow: 1;
+    max-width: 300px; /* Adjust width as needed */
+    display: flex;
+    align-items: center; /* Ensures slider line is vertically centered */
+  }
+  
+  .custom-slider {
+    width: 100%;
+    -webkit-appearance: none; /* Remove default styling */
+    appearance: none;
+    background: none;
+    position: relative;
+  }
+  
+  .custom-slider::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 3px; /* Thickness of the line */
+    background: #000; /* Black line */
+    position: relative;
+  }
+  
+  .custom-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 2rem; /* Same size as button */
+    height: 2rem; /* Same size as button */
+    background: #000; /* Same background color as button */
+    border: none;
+    border-radius: 50%; /* Circular */
+    cursor: pointer;
+    margin-top: -0.85rem; /* Centers thumb on the line */
+  }
+  
+  .custom-slider::-moz-range-track {
+    width: 100%;
+    height: 3px;
+    background: #000;
+  }
+  
+  .custom-slider::-moz-range-thumb {
+    width: 2rem; /* Same size as button */
+    height: 2rem; /* Same size as button */
+    background: #000; /* Same background color as button */
+    border: none;
+    border-radius: 50%; /* Circular */
+    cursor: pointer;
+    margin-top: -0.85rem; /* Centers thumb on the line */
+  }
+  
+  
 
-/* Custom thumb for Firefox */
-.custom-slider::-moz-range-thumb {
-  width: 2rem;
-  height: 2rem;
-  background: #000000; /* Black circular thumb */
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-/* Remove default outline and shadow on focus */
-.custom-slider:focus {
-  outline: none;
-}
 
 
 /* Modal Overlay */
