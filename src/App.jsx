@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './styles.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import AnimatedFavicon from './animatedfavicon';
-import DownloadButton from './DownloadButton';
-import DownloadButtonIOS from './DownloadButtonIOS'; // New DownloadButton for iOS
-import ColorButtons from './ColorButtons';
-import FontSizeSlider from './FontSizeSlider';
-import BlobPageIOS from './BlobPageIOS'; // Page to display and download the blob
-import AndroidWarning from './AndroidWarning'; // Import AndroidWarning component
+import AnimatedFavicon from './Components/animatedfavicon';
+import DownloadButton from './Components/DownloadButton';
+import DownloadButtonIOS from './Components/DownloadButtonIOS'; // New DownloadButton for iOS
+import ColorButtons from './Components/ColorButtons';
+import FontSizeSlider from './Components/FontSizeSlider';
+import BlobPageIOS from './Components/BlobPageIOS'; // Page to display and download the blob
+import AndroidWarning from './Components/AndroidWarning'; // Import AndroidWarning component
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
