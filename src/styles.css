@@ -348,7 +348,7 @@ body {
   bottom: 20px; /* Adjust distance from the bottom of the screen */
   left: 50%; /* Center horizontally */
   transform: translateX(-50%); /* Center by offsetting 50% of its width */
-  z-index: 1000; /* Ensure it stays on top */
+  z-index: 990; /* Ensure it stays on top */
   transition: transform 0.2s ease; /* Smooth transition for button toggle */
   text-align: center;
   border: 1px solid #000000; 

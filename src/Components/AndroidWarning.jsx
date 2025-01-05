@@ -26,7 +26,7 @@ function AndroidWarning() {
       }}
     >
       <p style={{ margin: '20px', fontSize: '18px', textAlign: 'center' }}>
-        You are currently viewing this app in an Instagram in-app browser on Android.
+        You are currently viewing this app in an Instagram in-app browser.
         <br />
         For the best experience, please open it in your default browser.
       </p>
