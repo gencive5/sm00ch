@@ -6,19 +6,18 @@
 }
 
 /* Ensure a consistent background color across all elements */
-body, .container, .text-input, .text-input2, .modal-overlay, .modal-content, .plus-menu-modal {
+body, .container, .text-input, .text-input2, .modal-overlay, .modal-content, .plus-menu-modal, .button-row, .custom-slider-container {
   background-color: #ffffff !important; /* For light mode */
-  color: #000000 !important; /* Ensure text remains readable */
+
 }
 
 /* Additional dark mode support */
 @media (prefers-color-scheme: dark) {
-  body, .container, .text-input, .text-input2, .modal-overlay, .modal-content, .plus-menu-modal {
-    background-color: #000000 !important; /* Set a uniform dark background */
-    color: #ffffff !important; /* Ensure text is visible on dark backgrounds */
+  body, .container, .text-input, .text-input2, .modal-overlay, .modal-content, .plus-menu-modal, .button-row, .custom-slider-container {
+    background-color: #b9b9b9 !important; /* Set a uniform dark background */
+    
   }
 }
-
 
 
 body {
@@ -438,10 +437,4 @@ a:active {
 }
 
 
-/* CSS Reset for Android system overrides */
-* {
-  background: transparent;
-  color: inherit;
-  border: none;
-  outline: none;
-}
+
