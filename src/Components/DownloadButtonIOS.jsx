@@ -50,11 +50,11 @@ const DownloadButtonIOS = ({ userText, fontSize, fontColor, showPlusButton }) =>
   };
 
   return showPlusButton ? (
-    <button className="bttn btn-download" onClick={loadFontAndDownload}>
+    <button className="btn-download" onClick={loadFontAndDownload}>
       DOWNLOAD PNG
     </button>
   ) : (
-    <a href="/sm00ch.zip" download="sm00ch.zip" className="bttn btn-download">
+    <a href="/sm00ch.zip" download="sm00ch.zip" className="bttn btn-downloaf">
       DOWNLOAD FONT
     </a>
   );

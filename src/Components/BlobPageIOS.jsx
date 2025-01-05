@@ -27,7 +27,7 @@ const BlobPageIOS = () => {
         alt="Generated PNG"
         style={{ maxWidth: '100%', height: 'auto', margin: '20px 0' }}
       />
-      <button className="bttn btn-download" onClick={handleDownload}>
+      <button className="btn-download" onClick={handleDownload}>
         DOWNLOAD PNG
       </button>
       <button className="bttn btn-back" onClick={() => navigate(-1)}>
