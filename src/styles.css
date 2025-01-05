@@ -356,6 +356,20 @@ body {
   margin-bottom: 20px; 
 }
 
+.row2 {
+  position: fixed; /* Keeps it always in the viewport */
+  bottom: 1rem; /* Adjust the margin from the bottom */
+  
+  width: 80%; /* Ensures it spans the full width of the screen */
+  display: flex;
+  justify-content: space-between; 
+  background-color: #ffffff; /* Optional background color */
+  z-index: 1000; /* Ensures it's above other elements */
+  padding: 10px 0; /* Optional padding */
+}
+
+
+
 /* Responsive layout for smaller screens */
 @media (max-width: 600px) {
   .row2 {
