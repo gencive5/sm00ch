@@ -36,7 +36,7 @@ function AndroidWarning() {
         style={{
           padding: '10px 20px',
           fontSize: '16px',
-          backgroundColor: '#007bff',
+          backgroundColor: '#C10303',
           color: 'white',
           textDecoration: 'none',
           borderRadius: '5px',

@@ -272,7 +272,7 @@ body {
 .modal-content {
   background: #ffffff; 
   color: #000000; 
-  padding: 3rem;
+  padding: 2rem;
   border-radius: 8px;
   text-align: center;
   font-family: 'bebas';
@@ -297,7 +297,6 @@ body {
 .plus-menu-modal .bttn {
   margin: 10px 0; /* Keeps buttons spaced out */
 }
-
 
 
 .btn-plus {
@@ -347,6 +346,35 @@ body {
 
   .custom-slider-container {
     width: 120px; /* Reduce width for mobile */
+  }
+
+  .modal-overlay {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 700;
+    color: #000000;
+    background: #ffffff; 
+    border-radius: 8px;
+    border: 1px solid #000000; 
+  }
+  
+  .modal-content {
+    background: #ffffff; 
+    color: #000000; 
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    font-family: 'bebas';
+    font-size: 1.5rem;
+    line-height: 1.5;
+    position: relative;
   }
 }
 
