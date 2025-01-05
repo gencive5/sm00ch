@@ -22,6 +22,7 @@ function AndroidWarning() {
         alignItems: 'center',
         justifyContent: 'center',
         zIndex: '1000',
+        fontFamily: "'bebas', sans-serif", // Apply bebas font to all text
       }}
     >
       <p style={{ margin: '20px', fontSize: '18px', textAlign: 'center' }}>
@@ -34,13 +35,30 @@ function AndroidWarning() {
         target="_blank"
         download
         style={{
-          padding: '10px 20px',
-          fontSize: '16px',
-          backgroundColor: '#C10303',
-          color: 'white',
-          textDecoration: 'none',
+          backgroundColor: '#ffffff',
+          border: '0px solid #000000',
           borderRadius: '5px',
-          marginTop: '10px',
+          width: '10rem',
+          height: '3rem',
+          boxSizing: 'border-box',
+          color: '#000000',
+          cursor: 'pointer',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          fontFamily: "'bebas', sans-serif",
+          fontSize: '2.3rem',
+          lineHeight: 'normal',
+          margin: '0',
+          outline: 'none',
+          padding: '0.7rem',
+          position: 'relative',
+          textAlign: 'center',
+          textDecoration: 'none',
+          touchAction: 'manipulation',
+          transition: 'box-shadow 0.2s, transform 0.1s',
+          userSelect: 'none',
+          minWidth: '14rem',
         }}
       >
         Open in Browser
