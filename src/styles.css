@@ -6,14 +6,14 @@
 }
 
 /* Ensure a consistent background color across all elements */
-body, .container, .text-input, .text-input2, .modal-overlay, .modal-content, .plus-menu-modal, .button-row, .custom-slider-container {
+body, .container, .text-input, .text-input2, .modal-overlay, .modal-content, .button-row, .custom-slider-container {
   background-color: #ffffff !important; /* For light mode */
 
 }
 
 /* Additional dark mode support */
 @media (prefers-color-scheme: dark) {
-  body, .container, .text-input, .text-input2, .modal-overlay, .modal-content, .plus-menu-modal, .button-row, .custom-slider-container {
+  body, .container, .text-input, .text-input2, .modal-overlay, .modal-content, .button-row, .custom-slider-container {
     background-color: #414141 !important; /* Set a uniform dark background */
     
   }
@@ -128,7 +128,6 @@ body {
   border-radius: 5px;
   width: 10rem;
   height: 3rem;
-  
   box-sizing: border-box;
   color: #000000;
   cursor: pointer;
@@ -227,17 +226,32 @@ body {
   }
   
   .slider-symbol {
-    font-size: 1.5rem; /* Size of the symbols */
-    font-weight: bold; /* Bold styling for symbols */
+    font-size: 1.5rem;
+    font-weight: bold;
     color: #000;
-    user-select: none; /* Prevent text selection */
-    line-height: 1; /* Prevents extra vertical spacing */
+    user-select: none; 
+    line-height: 1;
     display: flex;
-    align-items: center; /* Vertically centers the symbols */
+    align-items: center;
     justify-content: center;
     position: relative;
-    top: -1.5px; /* Fine-tune vertical positioning */
+    top: -1.5px;
   }
+
+  .slider-symbol2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #000;
+    user-select: none; 
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: -3px;
+  }
+
+  
 
   .slider-wrapper {
     position: relative;

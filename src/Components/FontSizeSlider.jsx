@@ -14,7 +14,7 @@ function FontSizeSlider({ fontSize, setFontSize }) {
           className="custom-slider"
         />
       </div>
-      <span className="slider-symbol">+</span>
+      <span className="slider-symbol2">+</span>
     </div>
   );
 }
