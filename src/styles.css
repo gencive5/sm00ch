@@ -137,7 +137,8 @@ body {
   font-size: 2.3rem;
   outline: none;
   padding: 0.7rem;
-  position: relative;
+  position: fixed;
+  bottom: 5rem; 
   text-align: center;
   transition: box-shadow 0.2s, transform 0.1s;
   user-select: none;
@@ -387,17 +388,7 @@ body {
     background-color: #ffffff;
   }
 
-  .btn-plus {
-    position: fixed;
-    bottom: 3rem; 
-    right: 20px; 
-    z-index: 1000; /* Ensure it stays on top */
-    transition: transform 0.2s ease; /* Smooth transition for button toggle */
-    text-align: center;
-    border: 1px solid #000000; 
-    align-items: center;
-    
-  }
+
 
   .btn-downloaf {
     background-color: #c10303;
