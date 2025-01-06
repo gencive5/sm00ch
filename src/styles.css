@@ -329,14 +329,12 @@ body {
   left: 50%; /* Center horizontally */
   transform: translateX(-50%); /* Center by offsetting 50% of its width */
   padding-bottom: 2rem;
-  gap: 20px;
+  gap: 3rem;
   z-index: 600; /* Ensure it stays on top */
   bottom: 6rem; 
 }
 
-.plus-menu-modal .bttn {
-  margin: 10px 0; /* Keeps buttons spaced out */
-}
+
 
 
 .btn-plus {
