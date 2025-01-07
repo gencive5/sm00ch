@@ -86,7 +86,7 @@ body {
     padding-bottom: 1.2rem;
   }
   
-/* Base button style */
+
 .bttn {
   background-color: #ffffff;
   border: 0px solid #000000;
@@ -115,7 +115,6 @@ body {
   min-width: 14rem; 
 }
 
-/* Modifier classes for different button colors */
 .btn-downloaf {
   background-color: #c10303;
   font-family: 'bebas';
@@ -248,11 +247,10 @@ body {
     align-items: center;
     justify-content: center;
     position: relative;
-    top: -3px;
+    top: -0.08rem;
   }
 
   
-
   .slider-wrapper {
     position: relative;
     flex-grow: 1;
@@ -323,9 +321,9 @@ body {
 }
 
 .modal-content {
-  background:transparent; 
+  background: #ffffff;
   color: #000000; 
-  
+  padding: 0%;
   border-radius: 8px;
   border: 2px solid #000000; 
   text-align: center;
@@ -338,24 +336,23 @@ body {
 .plus-menu-modal {
   display: flex;
   flex-direction: column;
-  position: fixed; /* Use fixed to position relative to the viewport */
-  bottom: 0; /* Adjust distance from the bottom */
+  position: fixed;
+  bottom: 0; 
   left: 50%; /* Center horizontally */
   transform: translateX(-50%); /* Center by offsetting 50% of its width */
- 
   gap: 3rem;
-  z-index: 600; /* Ensure it stays on top */
+  z-index: 600; 
   bottom: 4rem; 
 }
 
 
 .btn-plus {
   position: fixed;
-  bottom: 2rem; /* Adjust distance from the bottom of the screen */
-  left: 50%; /* Center horizontally */
+  bottom: 2rem; 
+  left: 50%; 
   transform: translateX(-50%); /* Center by offsetting 50% of its width */
-  z-index: 990; /* Ensure it stays on top */
-  transition: transform 0.2s ease; /* Smooth transition for button toggle */
+  z-index: 990; 
+  transition: transform 0.2s ease; 
   text-align: center;
   border: 1px solid #000000; 
   align-items: center;
@@ -373,13 +370,12 @@ body {
 }
 
 
-/* Responsive layout for smaller screens */
 @media (max-width: 600px) {
   .row2 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px; /* More gap for better separation */
+    gap: 10px;
     background-color: #ffffff;
   }
 
@@ -389,7 +385,7 @@ body {
     font-family: 'bebas';
   }
 
-  .text-input,{
+  .text-input {
     max-height: 10vh;
   }
 
@@ -399,7 +395,7 @@ body {
   }
 
   .custom-slider-container {
-    width: 120px; /* Reduce width for mobile */
+    width: 120px; 
   }
 
   .modal-overlay {
@@ -416,19 +412,20 @@ body {
     color: #000000;
     background: #ffffff; 
     border-radius: 8px;
-    border: 1px solid #000000; 
+    border: 2px solid #000000; 
   }
   
   .modal-content {
     background: #ffffff; 
     color: #000000; 
-    padding: 1rem;
+    padding: 0rem;
     border-radius: 8px;
     text-align: center;
     font-family: 'bebas';
     font-size: 1.5rem;
     line-height: 1.5;
     position: relative;
+    border: 2px solid #000000; 
   }
 }
 
