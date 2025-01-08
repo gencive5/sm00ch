@@ -1,39 +1,60 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const DownloadButtonIOS = ({ showPlusButton }) => {
-  const downloadZip = async () => {
+const DownloadButtonIOS = ({ userText, fontSize, fontColor, showPlusButton }) => {
+  const navigate = useNavigate();
+
+  const loadFontAndDownload = async () => {
+    if (!userText) return;
+
     try {
-      // Fetch the ZIP file from the server
-      const response = await fetch('/sm00ch.zip');
-      if (!response.ok) {
-        throw new Error('Failed to fetch ZIP file.');
-      }
-      const blob = await response.blob();
-
-      // Create a temporary Blob URL for the ZIP file
-      const blobUrl = URL.createObjectURL(blob);
-
-      // Create a temporary anchor element to trigger the download
-      const link = document.createElement('a');
-      link.href = blobUrl;
-      link.download = 'sm00ch.zip'; // Set the filename for the download
-      document.body.appendChild(link);
-      link.click(); // Simulate a click to start the download
-      document.body.removeChild(link);
-
-      // Revoke the Blob URL after the download
-      URL.revokeObjectURL(blobUrl);
+      await document.fonts.load(`${fontSize}px sm00ch`);
+      generatePNG();
     } catch (error) {
-      console.error('Download failed:', error);
+      console.error('Font loading failed:', error);
     }
   };
 
+  const generatePNG = () => {
+    const canvas = document.createElement('canvas');
+    const context = canvas.getContext('2d');
+    const dpr = window.devicePixelRatio || 1;
+
+    const padding = 80 * dpr; // Padding around the text
+    const scaleFactor = 2; // Scale for better resolution
+
+    context.font = `${fontSize * dpr * scaleFactor}px sm00ch`;
+    const textMetrics = context.measureText(userText);
+
+    const textWidth = textMetrics.width;
+    const textHeight = fontSize * dpr * scaleFactor;
+    canvas.width = textWidth + padding * 2;
+    canvas.height = textHeight + padding * 2;
+
+    // Clear and draw the text
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    context.font = `${fontSize * dpr * scaleFactor}px sm00ch`;
+    context.fillStyle = fontColor;
+    context.textBaseline = 'middle';
+    context.fillText(userText, padding, canvas.height / 2);
+
+    // Convert to blob and navigate to BlobPage
+    canvas.toBlob((blob) => {
+      if (!blob) {
+        console.error('Blob generation failed');
+        return;
+      }
+      const blobUrl = URL.createObjectURL(blob);
+      navigate('/blob-page', { state: { blobUrl } });
+    }, 'image/png');
+  };
+
   return showPlusButton ? (
-    <button className="btn-download" onClick={downloadZip}>
-      DOWNLOAD ZIP
+    <button className="btn-download" onClick={loadFontAndDownload}>
+      DOWNLOAD PNG
     </button>
   ) : (
-    <a href="#" className="bttn btn-downloaf" onClick={downloadZip}>
+    <a href="/sm00ch.zip" download="sm00ch.zip" className="bttn btn-downloaf">
       DOWNLOAD FONT
     </a>
   );
