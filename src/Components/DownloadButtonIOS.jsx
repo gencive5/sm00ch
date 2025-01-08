@@ -4,6 +4,34 @@ import { useNavigate } from 'react-router-dom';
 const DownloadButtonIOS = ({ userText, fontSize, fontColor, showPlusButton }) => {
   const navigate = useNavigate();
 
+  // Function to download the ZIP file
+  const downloadZip = async () => {
+    try {
+      // Fetch the ZIP file
+      const response = await fetch('/sm00ch.zip');
+      if (!response.ok) {
+        throw new Error('Failed to fetch ZIP file.');
+      }
+      const blob = await response.blob();
+
+      // Create a Blob URL for the ZIP file
+      const blobUrl = URL.createObjectURL(blob);
+
+      // Create a temporary anchor element to trigger the download
+      const link = document.createElement('a');
+      link.href = blobUrl;
+      link.download = 'sm00ch.zip'; // Set the filename for the download
+      document.body.appendChild(link);
+      link.click(); // Simulate click to start the download
+      document.body.removeChild(link);
+
+      // Revoke the Blob URL after the download
+      URL.revokeObjectURL(blobUrl);
+    } catch (error) {
+      console.error('Download failed:', error);
+    }
+  };
+
   const loadFontAndDownload = async () => {
     if (!userText) return;
 
@@ -54,7 +82,7 @@ const DownloadButtonIOS = ({ userText, fontSize, fontColor, showPlusButton }) =>
       DOWNLOAD PNG
     </button>
   ) : (
-    <a href="/sm00ch.zip" download="sm00ch.zip" className="bttn btn-downloaf">
+    <a href="#" className="bttn btn-downloaf" onClick={downloadZip}>
       DOWNLOAD FONT
     </a>
   );
