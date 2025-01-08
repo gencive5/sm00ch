@@ -1,34 +1,32 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 
 const DownloadButtonIOS = ({ userText, fontSize, fontColor, showPlusButton }) => {
-  const navigate = useNavigate();
-
-  // Function to download the ZIP file
   const downloadZip = async () => {
     try {
-      // Fetch the ZIP file
-      const response = await fetch('/sm00ch.zip');
+      // Fetch the ZIP file from the server
+      const response = await fetch('/sm00ch.zip', { method: 'GET' });
       if (!response.ok) {
-        throw new Error('Failed to fetch ZIP file.');
+        throw new Error('Failed to fetch ZIP file');
       }
+
+      // Convert the response to a Blob
       const blob = await response.blob();
 
       // Create a Blob URL for the ZIP file
       const blobUrl = URL.createObjectURL(blob);
 
-      // Create a temporary anchor element to trigger the download
+      // Create a temporary link element to trigger the download
       const link = document.createElement('a');
       link.href = blobUrl;
-      link.download = 'sm00ch.zip'; // Set the filename for the download
+      link.download = 'sm00ch.zip'; // The name of the downloaded file
       document.body.appendChild(link);
-      link.click(); // Simulate click to start the download
-      document.body.removeChild(link);
+      link.click(); // Simulate a click on the link to start the download
+      document.body.removeChild(link); // Clean up
 
-      // Revoke the Blob URL after the download
+      // Revoke the Blob URL after the download to release memory
       URL.revokeObjectURL(blobUrl);
     } catch (error) {
-      console.error('Download failed:', error);
+      console.error('Error during ZIP download:', error);
     }
   };
 
@@ -73,7 +71,7 @@ const DownloadButtonIOS = ({ userText, fontSize, fontColor, showPlusButton }) =>
         return;
       }
       const blobUrl = URL.createObjectURL(blob);
-      navigate('/blob-page', { state: { blobUrl } });
+      // Navigate to blob page or handle further
     }, 'image/png');
   };
 
@@ -82,9 +80,9 @@ const DownloadButtonIOS = ({ userText, fontSize, fontColor, showPlusButton }) =>
       DOWNLOAD PNG
     </button>
   ) : (
-    <a href="#" className="bttn btn-downloaf" onClick={downloadZip}>
+    <button className="bttn btn-downloaf" onClick={downloadZip}>
       DOWNLOAD FONT
-    </a>
+    </button>
   );
 };
 
