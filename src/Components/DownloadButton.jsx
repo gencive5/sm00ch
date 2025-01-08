@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 const DownloadButton = ({ userText, fontSize, fontColor, showPlusButton }) => {
@@ -33,7 +32,7 @@ const DownloadButton = ({ userText, fontSize, fontColor, showPlusButton }) => {
     context.clearRect(0, 0, canvas.width, canvas.height);
     context.font = `${fontSize * dpr * scaleFactor}px sm00ch`;
     context.fillStyle = fontColor;
-    context.textBaseline = 'middle'; // Vertical alignment
+    context.textBaseline = 'middle';
     context.fillText(userText, padding, canvas.height / 2);
 
     // Directly trigger download without redirecting

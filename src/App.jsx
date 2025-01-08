@@ -15,7 +15,6 @@ const routes = [
     path: '/',
     element: (
       <div className="container mt-5">
-        {/* Your components */}
         <MainApp />
       </div>
     ),
@@ -26,7 +25,6 @@ const routes = [
   },
 ];
 
-// Add future flags to the router
 const router = createBrowserRouter(routes, {
   future: {
     v7_startTransition: true,
@@ -44,18 +42,17 @@ function MainApp() {
   const [showPlusButton, setShowPlusButton] = useState(false);
   const [isAndroidInAppBrowser, setIsAndroidInAppBrowser] = useState(false);
   const [isIOSInstagram, setIsIOSInstagram] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
   const firstInputRef = useRef(null);
 
   useEffect(() => {
     const userAgent = navigator.userAgent;
 
-    // Detect Android in-app browser
     const isAndroid = /Android/i.test(userAgent);
     const isInApp = /Instagram/i.test(userAgent);
     setIsAndroidInAppBrowser(isAndroid && isInApp);
 
-    // Detect if the user is on iOS and in the Instagram in-app browser
     const isIOS = /iPhone|iPad|iPod/i.test(userAgent);
     setIsIOSInstagram(isIOS && isInApp);
   }, []);
@@ -68,9 +65,10 @@ function MainApp() {
 
   useEffect(() => {
     const handleResize = () => {
-      const isMobile = window.innerWidth <= 768;
-      setShowPlusButton(isMobile);
-      if (!isMobile) {
+      const mobileCheck = window.innerWidth <= 768;
+      setIsMobile(mobileCheck);
+      setShowPlusButton(mobileCheck);
+      if (!mobileCheck) {
         setIsPlusMenuOpen(false);
         setFontSize(150);
       } else {
@@ -120,7 +118,8 @@ function MainApp() {
         spellCheck={false}
       />
       <div className="button-row row2 mb-3 text-center mt-4">
-        {!isPlusMenuOpen && (
+        {/* Ensure buttons are hidden when the modal or plus menu is open */}
+        {!isAnyModalOpen && (
           <>
             {isIOSInstagram ? (
               <DownloadButtonIOS
@@ -146,9 +145,11 @@ function MainApp() {
             </button>
             {isPlusMenuOpen && (
               <div className="plus-menu-modal">
-                <a href="/sm00ch.zip" download="sm00ch.zip" className="bttn btn-downloaf">
-                  DOWNLOAD FONT
-                </a>
+                {!isModalOpen && (
+                  <a href="/sm00ch.zip" download="sm00ch.zip" className="bttn btn-downloaf">
+                    DOWNLOAD FONT
+                  </a>
+                )}
                 <button className="bttn btn-use" onClick={toggleModal}>
                   USE CONDITIONS
                 </button>
