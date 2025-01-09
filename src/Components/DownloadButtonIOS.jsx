@@ -1,40 +1,14 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const DownloadButtonIOS = ({ userText, fontSize, fontColor, showPlusButton }) => {
-  const downloadZip = async () => {
-    try {
-      // Fetch the ZIP file from the server
-      const response = await fetch('/sm00ch.zip', { method: 'GET' });
-      if (!response.ok) {
-        throw new Error('Failed to fetch ZIP file');
-      }
-
-      // Convert the response to a Blob
-      const blob = await response.blob();
-
-      // Create a Blob URL for the ZIP file
-      const blobUrl = URL.createObjectURL(blob);
-
-      // Create a temporary link element to trigger the download
-      const link = document.createElement('a');
-      link.href = blobUrl;
-      link.download = 'sm00ch.zip'; // The name of the downloaded file
-      document.body.appendChild(link);
-      link.click(); // Simulate a click on the link to start the download
-      document.body.removeChild(link); // Clean up
-
-      // Revoke the Blob URL after the download to release memory
-      URL.revokeObjectURL(blobUrl);
-    } catch (error) {
-      console.error('Error during ZIP download:', error);
-    }
-  };
+  const navigate = useNavigate();
 
   const loadFontAndDownload = async () => {
     if (!userText) return;
 
     try {
-      await document.fonts.load(`${fontSize}px sm00ch`);
+      await document.fonts.load(`${fontSize}px sm00ch`); // Fixed string interpolation with backticks
       generatePNG();
     } catch (error) {
       console.error('Font loading failed:', error);
@@ -49,7 +23,7 @@ const DownloadButtonIOS = ({ userText, fontSize, fontColor, showPlusButton }) =>
     const padding = 80 * dpr; // Padding around the text
     const scaleFactor = 2; // Scale for better resolution
 
-    context.font = `${fontSize * dpr * scaleFactor}px sm00ch`;
+    context.font = `${fontSize * dpr * scaleFactor}px sm00ch`; // Fixed string interpolation with backticks
     const textMetrics = context.measureText(userText);
 
     const textWidth = textMetrics.width;
@@ -59,9 +33,9 @@ const DownloadButtonIOS = ({ userText, fontSize, fontColor, showPlusButton }) =>
 
     // Clear and draw the text
     context.clearRect(0, 0, canvas.width, canvas.height);
-    context.font = `${fontSize * dpr * scaleFactor}px sm00ch`;
+    context.font = `${fontSize * dpr * scaleFactor}px sm00ch`; // Fixed string interpolation with backticks
     context.fillStyle = fontColor;
-    context.textBaseline = 'middle';
+    context.textBaseline = 'middle'; // Vertical alignment
     context.fillText(userText, padding, canvas.height / 2);
 
     // Convert to blob and navigate to BlobPage
@@ -71,7 +45,7 @@ const DownloadButtonIOS = ({ userText, fontSize, fontColor, showPlusButton }) =>
         return;
       }
       const blobUrl = URL.createObjectURL(blob);
-      // Navigate to blob page or handle further
+      navigate('/blob-page', { state: { blobUrl } });
     }, 'image/png');
   };
 
@@ -80,9 +54,9 @@ const DownloadButtonIOS = ({ userText, fontSize, fontColor, showPlusButton }) =>
       DOWNLOAD PNG
     </button>
   ) : (
-    <button className="bttn btn-downloaf" onClick={downloadZip}>
+    <a href="/sm00ch.zip" download="sm00ch.zip" className="bttn btn-downloaf">
       DOWNLOAD FONT
-    </button>
+    </a>
   );
 };
 
