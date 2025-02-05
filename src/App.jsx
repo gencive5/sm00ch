@@ -48,7 +48,6 @@ function MainApp() {
 
   useEffect(() => {
     const userAgent = navigator.userAgent;
-
     const isAndroid = /Android/i.test(userAgent);
     const isInApp = /Instagram/i.test(userAgent);
     setIsAndroidInAppBrowser(isAndroid && isInApp);
@@ -91,8 +90,6 @@ function MainApp() {
     setIsModalOpen(false);
   };
 
-  const isAnyModalOpen = isModalOpen || isPlusMenuOpen;
-
   return (
     <div>
       {isAndroidInAppBrowser && <AndroidWarning />}
@@ -118,8 +115,8 @@ function MainApp() {
         spellCheck={false}
       />
       <div className="button-row row2 mb-3 text-center mt-4">
-        {/* Ensure buttons are hidden when the modal or plus menu is open */}
-        {!isAnyModalOpen && (
+        {/* Only hide the button on mobile when the Plus Menu is open */}
+        {!(isPlusMenuOpen && isMobile) && (
           <>
             {isIOSInstagram ? (
               <DownloadButtonIOS
@@ -141,7 +138,7 @@ function MainApp() {
         {showPlusButton ? (
           <>
             <button className="bttn btn-plus" onClick={togglePlusMenu}>
-              {isAnyModalOpen ? 'X' : '+'}
+              {isPlusMenuOpen ? 'X' : '+'}
             </button>
             {isPlusMenuOpen && (
               <div className="plus-menu-modal">
