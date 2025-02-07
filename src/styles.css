@@ -147,6 +147,7 @@ font-size: 2rem;
   transition: box-shadow 0.2s, transform 0.1s;
   user-select: none;
   min-width: 14rem;
+  z-index: 800; 
 }
 
 
@@ -388,7 +389,7 @@ font-size: 2rem;
   bottom: 2rem; 
   left: 50%; 
   transform: translateX(-50%); /* Center by offsetting 50% of its width */
-  z-index: 900; 
+  z-index: 800;  
   transition: transform 0.2s ease; 
   text-align: center;
   border: 1px solid #000000; 
