@@ -350,7 +350,7 @@ font-size: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 900;
+  z-index: 1000;
   color: #000000;
   background: #ffffff; 
   border-radius: 8px;
@@ -388,7 +388,7 @@ font-size: 20px;
   bottom: 2rem; 
   left: 50%; 
   transform: translateX(-50%); /* Center by offsetting 50% of its width */
-  z-index: 990; 
+  z-index: 980; 
   transition: transform 0.2s ease; 
   text-align: center;
   border: 1px solid #000000; 
@@ -403,7 +403,7 @@ font-size: 20px;
   display: flex;
   justify-content: space-between; 
   background-color: #ffffff; 
-  z-index: 1000;  
+  z-index: 900;  
 }
 
 
