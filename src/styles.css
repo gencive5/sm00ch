@@ -87,6 +87,12 @@ body {
   }
   
 
+
+.subtitles  {
+font-family: 'sm00ch';
+}
+
+
 .bttn {
   background-color: #ffffff;
   border: 0px solid #000000;

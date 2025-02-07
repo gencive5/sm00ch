@@ -18,13 +18,15 @@ const InstagramWarningModal = () => {
   return (
     <div className="modal-overlay">
       <div className="modal-content">
+         <p className="subtitles"> 
+          For the best experience, please open this page in your external browser.
+        </p>
         <p>
-          
           For the best experience, please open this page in your external browser.
         </p>
       
         <button
-          className="bttn btn-close"
+          className="bttn"
           onClick={() => setShowInstagramWarning(false)}
         >
           Continue Anyway
