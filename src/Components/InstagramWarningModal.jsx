@@ -19,16 +19,10 @@ const InstagramWarningModal = () => {
     <div className="modal-overlay">
       <div className="modal-content">
         <p>
-          📢 You're using Instagram's in-app browser!
-          <br />
+          
           For the best experience, please open this page in your external browser.
         </p>
-        <button
-          className="bttn btn-use"
-          onClick={() => window.open(window.location.href, '_blank')}
-        >
-          OPEN IN BROWSER
-        </button>
+      
         <button
           className="bttn btn-close"
           onClick={() => setShowInstagramWarning(false)}
