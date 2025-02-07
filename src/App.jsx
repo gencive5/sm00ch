@@ -115,8 +115,8 @@ function MainApp() {
         spellCheck={false}
       />
       <div className="button-row row2 mb-3 text-center mt-4">
-        {/* Only hide the button on mobile when the Plus Menu is open */}
-        {!(isPlusMenuOpen && isMobile) && (
+        {/* Hide the Download PNG button on mobile when the Use Conditions modal is open */}
+        {!(isPlusMenuOpen && isMobile) && !((isModalOpen && isMobile)) && (
           <>
             {isIOSInstagram ? (
               <DownloadButtonIOS
@@ -137,8 +137,9 @@ function MainApp() {
         )}
         {showPlusButton ? (
           <>
-            <button className="bttn btn-plus" onClick={togglePlusMenu}>
-              {isPlusMenuOpen ? 'X' : '+'}
+            {/* If modal is open, clicking "X" closes it */}
+            <button className="bttn btn-plus" onClick={isModalOpen ? toggleModal : togglePlusMenu}>
+              {(isModalOpen || isPlusMenuOpen) ? 'X' : '+'}
             </button>
             {isPlusMenuOpen && (
               <div className="plus-menu-modal">
@@ -195,7 +196,7 @@ function MainApp() {
             <p>
               THIS FONT IS AVAILABLE FOR PERSONAL USE ONLY.
               <br />
-              CREDIT GENCIVE5 ON INSTAGRAM.
+              CREDIT @GENCIVE5 ON INSTAGRAM.
               <br />
               FOR ANY COMMERCIAL USE PLEASE CONTACT ME AT @GENCIVE5 OR VIC.SEGEN@GMAIL.COM
               <br />
