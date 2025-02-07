@@ -87,12 +87,10 @@ body {
   }
   
 
-
 .subtitles  {
 font-family: 'sm00ch';
 font-size: 2rem;
 }
-
 
 .bttn {
   background-color: #ffffff;
@@ -350,7 +348,7 @@ font-size: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  z-index: 999;
   color: #000000;
   background: #ffffff; 
   border-radius: 8px;
@@ -388,7 +386,7 @@ font-size: 2rem;
   bottom: 2rem; 
   left: 50%; 
   transform: translateX(-50%); /* Center by offsetting 50% of its width */
-  z-index: 980; 
+  z-index: 900; 
   transition: transform 0.2s ease; 
   text-align: center;
   border: 1px solid #000000; 
