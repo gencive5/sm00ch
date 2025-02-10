@@ -14,7 +14,8 @@ body, .container, .text-input, .text-input2,.button-row, .custom-slider-containe
 /* Additional dark mode support */
 @media (prefers-color-scheme: dark) {
   body, .container, .text-input, .text-input2, .button-row, .custom-slider-container {
-    background-color: #414141 !important; /* Set a uniform dark background */
+    background-color: #ffffff !important; /* Set a uniform dark background */
+    color: #000000;
     
   }
 }
