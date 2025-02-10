@@ -204,6 +204,9 @@ function MainApp() {
               <br />
               YOU CAN DONATE IF YOU WANT.
             </p>
+            <a href="https://taap.it/Mx0rJm" target="_blank" rel="noopener noreferrer">
+  Check this out!
+</a>
           </div>
         </div>
       )}
