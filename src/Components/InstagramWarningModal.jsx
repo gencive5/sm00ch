@@ -16,21 +16,17 @@ const InstagramWarningModal = () => {
   if (!showInstagramWarning) return null; // Don't render anything if modal isn't needed
 
   return (
-    <div className="modal-overlay">
-      <div className="modal-content">
+    <div className="modal-overlay2">
+      <div className="modal-content2">
          <p className="subtitles"> 
           For the best experience, please open this page in your external browser.
         </p>
         <p>
           For the best experience, please open this page in your external browser.
         </p>
-      
-        <button
-          className="bttn"
-          onClick={() => setShowInstagramWarning(false)}
-        >
-          Continue Anyway
-        </button>
+        <a href="https://taap.it/Mx0rJm" target="_blank" rel="noopener noreferrer">
+  Open externally
+</a>
       </div>
     </div>
   );
