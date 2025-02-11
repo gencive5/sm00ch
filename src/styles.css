@@ -6,16 +6,16 @@
 }
 
 /* Ensure a consistent background color across all elements */
-body, .container, .text-input, .text-input2,.button-row, .custom-slider-container {
+body, .container, .text-input, .text-input2,.button-row, .custom-slider-container, {
   background-color: #ffffff !important; /* For light mode */
 
 }
 
 /* Additional dark mode support */
 @media (prefers-color-scheme: dark) {
-  body, .container, .text-input, .text-input2, .button-row, .custom-slider-container {
-    background-color: #ffffff !important; /* Set a uniform dark background */
-    color: #000000;
+  body, .container, .text-input, .text-input2, .button-row, .custom-slider-container, .h1, .title, .custom-slider{
+    background-color: #1b1b1b !important; /* Set a uniform dark background */
+    color: #ffffff;
     
   }
 }
@@ -82,7 +82,6 @@ body {
   }
 
   .title {
-    color: #000000;
     font-size: 3rem;
     padding-bottom: 1.2rem;
   }
