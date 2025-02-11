@@ -16,7 +16,6 @@ body, .container, .text-input, .text-input2,.button-row, .custom-slider-containe
   body, .container, .text-input, .text-input2, .button-row, .custom-slider-container, .h1, .title, .custom-slider{
     background-color: #202020 !important; /* Set a uniform dark background */
     color: #ffffff;
-    
   }
 }
 
