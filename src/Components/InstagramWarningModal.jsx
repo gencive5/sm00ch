@@ -6,9 +6,10 @@ const InstagramWarningModal = () => {
   useEffect(() => {
     const userAgent = navigator.userAgent;
     const isInApp = /Instagram/i.test(userAgent);
+    const isIOS = /iPhone|iPad|iPod/i.test(userAgent);
 
-    // Show modal only if in Instagram in-app browser
-    if (isInApp) {
+    // Show modal only if in Instagram in-app browser on iOS
+    if (isInApp && isIOS) {
       setShowInstagramWarning(true);
     }
   }, []);
@@ -18,15 +19,12 @@ const InstagramWarningModal = () => {
   return (
     <div className="modal-overlay2">
       <div className="modal-content2">
-         <p className="subtitles"> 
+        <p className="subtitles"> 
           For the best experience, please open this page in your external browser.
         </p>
-        <p className="subtitles">
-          For the best experience, please open this page in your external browser.
-        </p>
-        <a href="https://taap.it/Mx0rJm" target="_blank" rel="noopener noreferrer">
-  Open externally
-</a>
+        <a href="https://taap.it/Mx0rJm" target="_blank" rel="noopener noreferrer" className="external-link">
+          Open externally
+        </a>
       </div>
     </div>
   );
