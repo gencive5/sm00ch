@@ -204,7 +204,10 @@ function MainApp() {
               <br />
               YOU CAN DONATE IF YOU WANT.
             </p>
+<<<<<<< HEAD
          
+=======
+>>>>>>> 072a23da811d057946ff0fb0d795037e84b6c67a
           </div>
         </div>
       )}
