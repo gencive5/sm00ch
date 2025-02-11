@@ -10,6 +10,7 @@ import BlobPageIOS from './Components/BlobPageIOS';
 import AndroidWarning from './Components/AndroidWarning';
 import InstagramWarningModal from './Components/InstagramWarningModal';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import ThemeHandler from "./Components/ThemeHandler";
 
 const routes = [
   {
@@ -95,6 +96,7 @@ function MainApp() {
     <div>
       {isAndroidInAppBrowser && <AndroidWarning />}
       <InstagramWarningModal /> 
+      <ThemeHandler />
       <h1 className="title">sm00ch</h1>
       <div className="button-row mb-3">
         <FontSizeSlider fontSize={fontSize} setFontSize={setFontSize} />
