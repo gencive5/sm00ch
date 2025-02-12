@@ -226,6 +226,19 @@ font-size: 2rem;
   }
 
 
+  .btn-open {
+    position: fixed;
+   
+    left: 50%; 
+    transform: translateX(-50%); /* Center by offsetting 50% of its width */
+     
+    transition: transform 0.2s ease; 
+    text-align: center;
+    border: 1px solid #000000; 
+    align-items: center;
+    
+  }
+
   .custom-slider-container {
     display: flex;
     align-items: center;
