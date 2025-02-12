@@ -93,7 +93,7 @@ font-size: 2rem;
 
 .subtitles2  {
   font-family: 'bebas';
-  font-size: 2rem;
+  font-size: 1rem;
   }
 
 .bttn {
@@ -237,7 +237,6 @@ font-size: 2rem;
     border: 1px solid #000000; 
     align-items: center;
     background-color: #ffffff;
-    border: 0px solid #000000;
     border-radius: 5px;
     width: 13rem;
     height: 3rem;
@@ -251,13 +250,11 @@ font-size: 2rem;
     font-size: 2.3rem;
     line-height: normal; /* Ensures proper spacing */
     margin: 0;
-    outline: none;
     padding: 0.7rem;
     position: relative;
     text-align: center;
     text-decoration: none;
     touch-action: manipulation;
-    transition: box-shadow 0.2s, transform 0.1s;
     user-select: none;
     -webkit-user-select: none;
     
