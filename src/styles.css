@@ -88,8 +88,13 @@ body {
 
 .subtitles  {
 font-family: 'sm00ch';
-font-size: 1rem;
+font-size: 3rem;
 }
+
+.subtitles2  {
+  font-family: 'bebas';
+  font-size: 3rem;
+  }
 
 .bttn {
   background-color: #ffffff;
@@ -354,9 +359,7 @@ font-size: 1rem;
 .modal-content2 {
   background: #ffffff;
   color: #000000; 
-  padding: 2rem;
-  border-radius: 8px;
-  border: 2px solid #000000; 
+ 
   text-align: center;
   font-family: 'bebas';
   font-size: 2rem;
