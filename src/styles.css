@@ -89,6 +89,8 @@ body {
 .subtitles  {
 font-family: 'sm00ch';
 font-size: 4rem;
+padding-left: 0.5rem;
+padding-right: 0.5rem;
 }
 
 .subtitles2  {
