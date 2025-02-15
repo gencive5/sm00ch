@@ -22,11 +22,9 @@ const InstagramWarningModal = () => {
         <p className="subtitles"> 
           For the best experience, please open this page in your external browser.
         </p>
-        <p className="subtitles2"> 
-          For the best experience, please open this page in your external browser.
-        </p>
+        
         <a href="https://taap.it/Mx0rJm" target="_blank" rel="noopener noreferrer" className="external-link">
-        <button className="btn-open">OPEN EXTERNALLY</button>
+        <button className="btn-open">OPEN IN BROWSER</button>
         </a>
        
       </div>

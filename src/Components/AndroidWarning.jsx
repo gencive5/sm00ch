@@ -21,7 +21,7 @@ function AndroidWarning() {
       <a  href={window.location.href}
     target="_blank"
     download >
-      <button className="btn-open">OPEN EXTERNALLY</button>
+      <button className="btn-open">OPEN IN BROWSER</button>
       </a>
      
     </div>
