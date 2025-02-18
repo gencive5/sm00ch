@@ -3,7 +3,6 @@ import './styles.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AnimatedFavicon from './Components/AnimatedFavicon';
 import DownloadButton from './Components/DownloadButton';
-import DownloadButtonIOS from './Components/DownloadButtonIOS';
 import ColorButtons from './Components/ColorButtons';
 import FontSizeSlider from './Components/FontSizeSlider';
 import AndroidWarning from './Components/AndroidWarning';
@@ -37,7 +36,6 @@ function MainApp() {
   const [isPlusMenuOpen, setIsPlusMenuOpen] = useState(false);
   const [showPlusButton, setShowPlusButton] = useState(false);
   const [isAndroidInAppBrowser, setIsAndroidInAppBrowser] = useState(false);
-  const [isIOSInstagram, setIsIOSInstagram] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
   const firstInputRef = useRef(null);
@@ -47,9 +45,6 @@ function MainApp() {
     const isAndroid = /Android/i.test(userAgent);
     const isInApp = /Instagram/i.test(userAgent);
     setIsAndroidInAppBrowser(isAndroid && isInApp);
-
-    const isIOS = /iPhone|iPad|iPod/i.test(userAgent);
-    setIsIOSInstagram(isIOS && isInApp);
   }, []);
 
   useEffect(() => {
@@ -89,7 +84,7 @@ function MainApp() {
   return (
     <div>
       {isAndroidInAppBrowser && <AndroidWarning />}
-      <InstagramWarningModal /> 
+      <InstagramWarningModal />
       <h1 className="title">sm00ch</h1>
       <div className="button-row mb-3">
         <FontSizeSlider fontSize={fontSize} setFontSize={setFontSize} />
@@ -113,23 +108,12 @@ function MainApp() {
       />
       <div className="button-row row2 mb-3 text-center mt-4">
         {!(isPlusMenuOpen && isMobile) && !((isModalOpen && isMobile)) && (
-          <>
-            {isIOSInstagram ? (
-              <DownloadButtonIOS
-                userText={userText}
-                fontSize={fontSize}
-                fontColor={fontColor}
-                showPlusButton={showPlusButton}
-              />
-            ) : (
-              <DownloadButton
-                userText={userText}
-                fontSize={fontSize}
-                fontColor={fontColor}
-                showPlusButton={showPlusButton}
-              />
-            )}
-          </>
+          <DownloadButton
+            userText={userText}
+            fontSize={fontSize}
+            fontColor={fontColor}
+            showPlusButton={showPlusButton}
+          />
         )}
         {showPlusButton ? (
           <>
