@@ -6,7 +6,6 @@ import DownloadButton from './Components/DownloadButton';
 import DownloadButtonIOS from './Components/DownloadButtonIOS';
 import ColorButtons from './Components/ColorButtons';
 import FontSizeSlider from './Components/FontSizeSlider';
-import BlobPageIOS from './Components/BlobPageIOS';
 import AndroidWarning from './Components/AndroidWarning';
 import InstagramWarningModal from './Components/InstagramWarningModal';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
@@ -19,10 +18,6 @@ const routes = [
         <MainApp />
       </div>
     ),
-  },
-  {
-    path: '/blob-page',
-    element: <BlobPageIOS />,
   },
 ];
 
@@ -117,7 +112,6 @@ function MainApp() {
         spellCheck={false}
       />
       <div className="button-row row2 mb-3 text-center mt-4">
-        {/* Hide the Download PNG button on mobile when the Use Conditions modal is open */}
         {!(isPlusMenuOpen && isMobile) && !((isModalOpen && isMobile)) && (
           <>
             {isIOSInstagram ? (
@@ -139,7 +133,6 @@ function MainApp() {
         )}
         {showPlusButton ? (
           <>
-            {/* If modal is open, clicking "X" closes it */}
             <button className="bttn btn-plus" onClick={isModalOpen ? toggleModal : togglePlusMenu}>
               {(isModalOpen || isPlusMenuOpen) ? 'X' : '+'}
             </button>
@@ -204,7 +197,6 @@ function MainApp() {
               <br />
               YOU CAN DONATE IF YOU WANT.
             </p>
-
           </div>
         </div>
       )}
