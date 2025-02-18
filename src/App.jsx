@@ -177,7 +177,9 @@ function MainApp() {
               <br />
               CREDIT @GENCIVE5 ON INSTAGRAM.
               <br />
-              FOR ANY COMMERCIAL USE PLEASE CONTACT ME AT @GENCIVE5 OR VIC.SEGEN@GMAIL.COM
+              FOR ANY COMMERCIAL USE PLEASE CONTACT ME AT
+              <br />
+              @GENCIVE5 OR VIC.SEGEN@GMAIL.COM
               <br />
               YOU CAN DONATE IF YOU WANT.
             </p>
