@@ -14,7 +14,7 @@ body, .container, .text-input, .text-input2,.button-row, .custom-slider-containe
 /* Additional dark mode support */
 @media (prefers-color-scheme: dark) {
   body, .container, .text-input, .text-input2, .button-row, .custom-slider-container, .title, .custom-slider{
-    background-color: #494949 !important; /* Set a uniform dark background2e2e2e */
+    background-color: #696969 !important; /* Set a uniform dark background2e2e2e */
     color: #ffffff;
   }
 }
@@ -367,8 +367,8 @@ padding-right: 0.7rem;
 }
 
 .modal-content2 {
-  background: #494949;
-  color: #000000; 
+  background: #696969;
+  color: #696969; 
  
   text-align: center;
   font-family: 'bebas';
