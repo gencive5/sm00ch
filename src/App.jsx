@@ -180,8 +180,6 @@ function MainApp() {
               FOR ANY COMMERCIAL USE PLEASE CONTACT ME AT
               <br />
               @GENCIVE5 OR VIC.SEGEN@GMAIL.COM
-              <br />
-              YOU CAN DONATE IF YOU WANT.
             </p>
           </div>
         </div>
