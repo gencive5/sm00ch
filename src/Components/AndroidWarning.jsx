@@ -15,9 +15,7 @@ function AndroidWarning() {
       <p className="subtitles"> 
         For the best experience, please open this page in your external browser.
       </p>
-      <p className="subtitles2"> 
-        For the best experience, please open this page in your external browser.
-      </p>
+      
       <a  href={window.location.href}
     target="_blank"
     download >

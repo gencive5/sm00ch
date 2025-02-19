@@ -13,7 +13,7 @@ body, .container, .text-input, .text-input2,.button-row, .custom-slider-containe
 
 /* Additional dark mode support */
 @media (prefers-color-scheme: dark) {
-  body, .container, .text-input, .text-input2, .button-row, .custom-slider-container, .h1, .title, .custom-slider{
+  body, .container, .text-input, .text-input2, .button-row, .custom-slider-container, .title, .custom-slider{
     background-color: #2e2e2e !important; /* Set a uniform dark background */
     color: #ffffff;
   }
@@ -36,36 +36,28 @@ body {
   background-color: #ffffff;
 }
 
-.text-input {
+
+.text-input, .text-input2 {
   width: 100%;
-  height: 10vh;
-  padding-left: 1.8rem;
-  padding-right: 1.8rem;
+  padding: 1.8rem;
   border: none;
   outline: none;
-  font-size: 2rem;
   caret-color: black;
-  font-family: 'bebas';
   text-transform: uppercase;
   resize: none;
   overflow: hidden;
   background-color: #ffffff;
 }
 
-.text-input2 {
-  width: 100%;
-  height: 55vh;
-  padding-left: 1.8rem;
-  padding-right: 1.8rem;
-  border: none;
-  outline: none;
+.text-input {
+  height: 10vh;
   font-size: 2rem;
-  caret-color: black;
+  font-family: 'bebas';
+}
+
+.text-input2 {
+  height: 55vh;
   font-family: 'sm00ch';
-  text-transform: uppercase;
-  resize: none;
-  overflow: hidden;
-  background-color: #ffffff;
 }
 
 /* Add blinking caret effect */
@@ -93,10 +85,6 @@ padding-left: 0.7rem;
 padding-right: 0.7rem;
 }
 
-.subtitles2  {
-  font-family: 'bebas';
-  font-size: 1rem;
-  }
 
 .bttn {
   background-color: #ffffff;
@@ -187,45 +175,30 @@ padding-right: 0.7rem;
   min-width: 100px;
 }
 
-  .button-red {
-    border-radius: 50%;
-    height: 2rem;
-    width: 2rem;
-    background-color: #c10303;
-    color: white;
-    border: none;
-    padding: 5px;
-  }
+/* Color Buttons */
+.button-red, .button-fuchsia, .button-pink, .button-black {
+  border-radius: 50%;
+  height: 2rem;
+  width: 2rem;
+  border: none;
+}
 
-  .button-fuchsia {
-    border-radius: 50%;
-    height: 2rem;
-    width: 2rem;
-    background-color: #f70841;
-    color: white;
-    border: none;
-    padding: 5px;
-  }
+.button-red {
+  background-color: #c10303;
+}
 
-  .button-pink {
-    border-radius: 50%;
-    height: 2rem;
-    width: 2rem;
-    background-color: #ff3ea3;
-    color: white;
-    border: none;
-    padding: 5px;
-  }
+.button-fuchsia {
+  background-color: #f70841;
+}
 
-  .button-black {
-    border-radius: 50%;
-    height: 2rem;
-    width: 2rem;
-    background-color: #000000;
-    color: white;
-    border: none;
-    padding: 5px;
-  }
+.button-pink {
+  background-color: #ff3ea3;
+}
+
+.button-black {
+  background-color: #000000;
+}
+
 
 
   .btn-open {
