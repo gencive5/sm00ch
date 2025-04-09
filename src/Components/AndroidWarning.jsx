@@ -16,11 +16,11 @@ function AndroidWarning() {
         For the best experience, please open this page in your external browser.
       </p>
       
-      <a  href={window.location.href}
-    target="_blank"
-    download >
-      <button className="btn-open">OPEN IN BROWSER</button>
-      </a>
+      <a href={window.location.href} target="_blank" rel="noopener noreferrer">
+  <button className="btn-open" aria-label="Open in external browser">
+    OPEN IN BROWSER
+  </button>
+</a>
      
     </div>
   </div>
