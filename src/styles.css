@@ -8,16 +8,9 @@
 /* Ensure a consistent background color across all elements */
 body, .container, .text-input, .text-input2,.button-row, .custom-slider-container {
   background-color: #ffffff !important; /* For light mode */
-
+  color: #000000;
 }
 
-/* Additional dark mode support */
-@media (prefers-color-scheme: dark) {
-  body, .container, .text-input, .text-input2, .button-row, .custom-slider-container, .title, .custom-slider{
-    background-color: #4d4d4d !important; /* Set a uniform dark background2e2e2e */
-    color: #ffffff;
-  }
-}
 
 
 body {
@@ -25,7 +18,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #ffffff;
-    color: #ffffff;
+    color: #000000;
     overflow:hidden;
   }
 
@@ -198,13 +191,10 @@ padding-right: 0.7rem;
 }
 
 
-
   .btn-open {
     position: fixed;
-   
     left: 50%; 
     transform: translateX(-50%); /* Center by offsetting 50% of its width */
-     
     transition: transform 0.2s ease; 
     text-align: center;
     border: 1px solid #000000; 
@@ -230,7 +220,6 @@ padding-right: 0.7rem;
     touch-action: manipulation;
     user-select: none;
     -webkit-user-select: none;
-    
     
   }
 
@@ -362,11 +351,11 @@ padding-right: 0.7rem;
   justify-content: center;
   align-items: center;
   z-index: 9999;
-  background: #4d4d4d; 
+  background: #ffffff; 
 }
 
 .modal-content2 {
-  background: #4d4d4d;
+  background: #ffffff;
   color: #000000; 
  
   text-align: center;
