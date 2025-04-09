@@ -97,6 +97,7 @@ function MainApp() {
         value={userText}
         onChange={(e) => setUserText(e.target.value)}
         spellCheck={false}
+        aria-label="Text input for sm00ch font"
       />
       <textarea
         className="text-input2"
@@ -105,6 +106,7 @@ function MainApp() {
         onChange={(e) => setUserText(e.target.value)}
         style={{ fontSize: `${fontSize}px`, color: fontColor }}
         spellCheck={false}
+        aria-label="Text output for sm00ch font"
       />
       <div className="button-row row2 mb-3 text-center mt-4">
         {!(isPlusMenuOpen && isMobile) && !((isModalOpen && isMobile)) && (
@@ -117,9 +119,13 @@ function MainApp() {
         )}
         {showPlusButton ? (
           <>
-            <button className="bttn btn-plus" onClick={isModalOpen ? toggleModal : togglePlusMenu}>
-              {(isModalOpen || isPlusMenuOpen) ? 'X' : '+'}
-            </button>
+            <button 
+            className="bttn btn-plus" 
+            onClick={isModalOpen ? toggleModal : togglePlusMenu}
+            aria-label={isModalOpen || isPlusMenuOpen ? "Close menu" : "Open menu"}
+          >
+            {(isModalOpen || isPlusMenuOpen) ? 'X' : '+'}
+          </button>
             {isPlusMenuOpen && (
               <div className="plus-menu-modal">
                 {!isModalOpen && (
@@ -127,22 +133,26 @@ function MainApp() {
                     DOWNLOAD FONT
                   </a>
                 )}
-                <button className="bttn btn-use" onClick={toggleModal}>
-                  USE CONDITIONS
-                </button>
+               <button className="bttn btn-use" onClick={toggleModal} aria-label="View use conditions">
+                {isModalOpen ? 'X' : 'USE CONDITIONS'}
+              </button>
                 <a
                   href="https://www.paypal.me/VicSegen?locale.x=fr_FR"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <button className="bttn btn-donate">DONATE</button>
+                 <button className="bttn btn-donate" aria-label="Donate via PayPal">
+                    DONATE
+                  </button>
                 </a>
                 <a
                   href="https://youtu.be/QgW_smQAwyE"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <button className="bttn btn-2">sm00ch 2</button>
+                  <button className="bttn btn-2" aria-label="View sm00ch 2 on YouTube">
+                    sm00ch 2
+                  </button>
                 </a>
               </div>
             )}

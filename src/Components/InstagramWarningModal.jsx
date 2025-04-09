@@ -24,7 +24,7 @@ const InstagramWarningModal = () => {
         </p>
         
         <a href="https://taap.it/Mx0rJm" target="_blank" rel="noopener noreferrer" className="external-link">
-        <button className="btn-open">OPEN IN BROWSER</button>
+        <button className="btn-open" aria-label="Open in external browser">OPEN IN BROWSER</button>
         </a>
        
       </div>

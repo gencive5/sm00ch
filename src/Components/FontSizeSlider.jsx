@@ -15,6 +15,7 @@ function FontSizeSlider({ fontSize, setFontSize }) {
           value={fontSize}
           onChange={(e) => setFontSize(Number(e.target.value))}
           className="custom-slider"
+          aria-label="Adjust font size"
         />
       </div>
       <span className="slider-symbol2">+</span>

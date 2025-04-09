@@ -47,13 +47,13 @@ const DownloadButton = ({ userText, fontSize, fontColor, showPlusButton }) => {
   };
 
   return showPlusButton ? (
-    <button className="btn-download" onClick={loadFontAndDownload}>
-      DOWNLOAD PNG
-    </button>
+    <button className="btn-download" onClick={loadFontAndDownload} aria-label="Download PNG">
+  DOWNLOAD PNG
+</button>
   ) : (
-    <a href="/sm00ch.zip" download="sm00ch.zip" className="bttn btn-downloaf">
-      DOWNLOAD FONT
-    </a>
+    <a href="/sm00ch.zip" download="sm00ch.zip" className="bttn btn-downloaf" aria-label="Download font">
+    DOWNLOAD FONT
+  </a>
   );
 };
 
