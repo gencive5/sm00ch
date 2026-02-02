@@ -189,7 +189,7 @@ function MainApp() {
               <br />
               FOR ANY COMMERCIAL USE PLEASE CONTACT ME AT
               <br />
-              @GENCIVE5 OR VIC.SEGEN@GMAIL.COM
+              @GENCIVE5 OR CONTACT@GENCIV.ES
             </p>
           </div>
         </div>
